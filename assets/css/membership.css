@@ -1,0 +1,487 @@
+/*
+ * Sepo Membership — plans, my membership, giving, sponsors and the members area.
+ *
+ * Flat: borders and tints, no shadows. Colours are tokens on .smem-scope; the
+ * script adds .smem-dark when the page is dark, whichever theme draws it.
+ * Theme styles for headings, labels, lists and form controls stop at the
+ * scope's edge, and the plugin's own classes style them instead.
+ */
+
+.smem-scope {
+  --smem-accent: #1f4e79;
+  --smem-on-accent: #ffffff;
+  --smem-accent-ink: var(--smem-accent);
+  --smem-wash: rgba(31, 78, 121, 0.07);
+  --smem-wash-strong: rgba(31, 78, 121, 0.14);
+  --smem-text: inherit;
+  --smem-muted: #556070;
+  --smem-soft: #3d4756;
+  --smem-strong: #0f1720;
+  --smem-rule: rgba(128, 128, 128, 0.26);
+  --smem-rule-soft: rgba(128, 128, 128, 0.15);
+  --smem-panel: rgba(128, 128, 128, 0.035);
+  --smem-sunken: rgba(128, 128, 128, 0.075);
+  --smem-surface: #ffffff;
+  --smem-surface-ink: #17202a;
+  --smem-good: #17733a;
+  --smem-good-wash: rgba(23, 115, 58, 0.1);
+  --smem-bad: #b42318;
+  --smem-bad-wash: rgba(180, 35, 24, 0.09);
+  --smem-warn: #8a5a00;
+  --smem-warn-wash: rgba(214, 158, 46, 0.15);
+  --smem-info: #175cd3;
+  --smem-info-wash: rgba(23, 92, 211, 0.08);
+  --smem-gold: #9a6b00;
+  --smem-radius: 14px;
+  color: inherit;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.55;
+}
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+  .smem-scope {
+    --smem-wash: color-mix(in srgb, var(--smem-accent) 7%, transparent);
+    --smem-wash-strong: color-mix(in srgb, var(--smem-accent) 14%, transparent);
+  }
+}
+.smem-scope.smem-dark {
+  --smem-accent-ink: #9cc7f0;
+  --smem-wash: rgba(156, 199, 240, 0.08);
+  --smem-wash-strong: rgba(156, 199, 240, 0.16);
+  --smem-text: #eaeff4;
+  --smem-muted: #bcc6d1;
+  --smem-soft: #d7dee6;
+  --smem-strong: #ffffff;
+  --smem-rule: rgba(255, 255, 255, 0.17);
+  --smem-rule-soft: rgba(255, 255, 255, 0.1);
+  --smem-panel: rgba(255, 255, 255, 0.03);
+  --smem-sunken: rgba(255, 255, 255, 0.065);
+  --smem-surface: #161c22;
+  --smem-surface-ink: #eaeff4;
+  --smem-good: #5fd383;
+  --smem-good-wash: rgba(95, 211, 131, 0.13);
+  --smem-bad: #f6887e;
+  --smem-bad-wash: rgba(246, 136, 126, 0.13);
+  --smem-warn: #f0c45a;
+  --smem-warn-wash: rgba(240, 196, 90, 0.13);
+  --smem-info: #8db8fa;
+  --smem-info-wash: rgba(141, 184, 250, 0.12);
+  --smem-gold: #f0c45a;
+  color: var(--smem-text);
+}
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+  .smem-scope.smem-dark { --smem-accent-ink: color-mix(in oklch, var(--smem-accent) 42%, #ffffff); }
+}
+
+.smem-scope *, .smem-scope *::before, .smem-scope *::after { box-sizing: border-box; }
+.smem-scope [hidden] { display: none !important; }
+.smem-scope :is(button, input, select, textarea) { font: inherit; letter-spacing: normal; text-transform: none; box-shadow: none; margin: 0; }
+.smem-scope :where(h1, h2, h3, h4, p, ol, ul, li, dl, dt, dd, figure, fieldset, legend, pre, table) { margin: 0; padding: 0; }
+.smem-scope :where(h1, h2, h3, h4) { color: var(--smem-strong); letter-spacing: normal; text-transform: none; font-family: inherit; }
+.smem-scope :where(ul, ol) { list-style: none; }
+.smem-scope :where(li)::before { content: none; }
+.smem-scope :where(fieldset) { border: 0; min-width: 0; }
+.smem-scope label { margin: 0; padding: 0; color: inherit; font-size: inherit; font-weight: inherit; text-transform: none; letter-spacing: normal; }
+.smem-scope :where(img) { max-width: 100%; height: auto; border: 0; border-radius: 0; box-shadow: none; }
+.smem-scope a { text-decoration: none; color: var(--smem-accent-ink); }
+.smem-scope a:hover { text-decoration: underline; }
+.smem-scope :is(button, a, input, select, textarea, summary, label, [tabindex]):focus-visible { outline: 2px solid var(--smem-accent-ink); outline-offset: 2px; }
+.smem-scope .screen-reader-text { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.smem-icon { flex-shrink: 0; vertical-align: -3px; }
+.smem-wrap.alignwide { width: 100%; }
+.smem-wrap { max-width: 1120px; container-type: inline-size; container-name: smem; }
+.smem-account, .smem-donate, .smem-area { max-width: 880px; }
+.smem-donate { max-width: 620px; }
+.smem-only { max-width: none; }
+html.smem-modal-open { overflow: hidden; }
+
+/* ---- Type --------------------------------------------------------------- */
+.smem-head { margin: 0 0 22px; }
+.smem-head--center { text-align: center; }
+.smem-scope .smem-title { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); font-weight: 700; line-height: 1.15; letter-spacing: -.015em; }
+.smem-scope .smem-lede { margin-top: 8px; font-size: 1.05rem; color: var(--smem-muted); max-width: 60ch; }
+.smem-head--center .smem-lede { margin-left: auto; margin-right: auto; }
+.smem-section { margin-top: 32px; }
+.smem-scope .smem-section__title { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+.smem-scope .smem-empty { padding: 26px 16px; border: 1px dashed var(--smem-rule); border-radius: var(--smem-radius); text-align: center; color: var(--smem-muted); font-size: .92rem; }
+.smem-center { text-align: center; }
+.smem-count { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 20px; padding: 0 7px; border-radius: 999px; background: var(--smem-sunken); color: inherit; font-size: .72rem; font-weight: 700; line-height: 1; }
+
+/* ---- Buttons ------------------------------------------------------------ */
+.smem-scope .smem-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 16px; min-height: 42px; border-radius: 10px; border: 1px solid var(--smem-rule); background: transparent; color: inherit; font-size: .92rem; font-weight: 650; line-height: 1.2; text-decoration: none; white-space: nowrap; cursor: pointer; box-shadow: none; text-shadow: none; transform: none; transition: background-color .12s ease, border-color .12s ease, color .12s ease, filter .12s ease; }
+.smem-scope .smem-btn:hover { background: var(--smem-sunken); border-color: var(--smem-muted); text-decoration: none; transform: none; box-shadow: none; }
+.smem-scope .smem-btn:disabled, .smem-scope .smem-btn[aria-disabled="true"] { opacity: .55; cursor: default; }
+.smem-scope .smem-btn--primary { background: var(--smem-accent); color: var(--smem-on-accent); border-color: transparent; }
+.smem-scope .smem-btn--primary:hover { background: var(--smem-accent); color: var(--smem-on-accent); border-color: transparent; filter: brightness(1.12); }
+.smem-scope.smem-dark .smem-btn--primary { background: var(--smem-accent-ink); color: #0b1520; }
+.smem-scope.smem-dark .smem-btn--primary:hover { background: var(--smem-accent-ink); color: #0b1520; filter: brightness(1.06); }
+.smem-scope .smem-btn--outline { border-color: var(--smem-accent-ink); color: var(--smem-accent-ink); }
+.smem-scope .smem-btn--outline:hover { background: var(--smem-wash); border-color: var(--smem-accent-ink); color: var(--smem-accent-ink); }
+.smem-scope .smem-btn--quiet { border-color: transparent; color: var(--smem-muted); }
+.smem-scope .smem-btn--quiet:hover { color: inherit; border-color: transparent; }
+.smem-scope .smem-btn--danger { background: var(--smem-bad); color: #fff; border-color: transparent; }
+.smem-scope.smem-dark .smem-btn--danger { color: #1a0b09; }
+.smem-scope .smem-btn--danger:hover { background: var(--smem-bad); filter: brightness(1.08); border-color: transparent; }
+.smem-scope .smem-btn--danger-text { color: var(--smem-bad); }
+.smem-scope .smem-btn--danger-text:hover { background: var(--smem-bad-wash); color: var(--smem-bad); }
+.smem-scope .smem-btn--sm { padding: 6px 12px; min-height: 34px; font-size: .82rem; border-radius: 8px; gap: 6px; }
+.smem-scope .smem-btn--lg { min-height: 50px; font-size: 1rem; padding: 12px 20px; }
+.smem-scope .smem-btn--block { display: flex; width: 100%; }
+.smem-scope .smem-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0; border-radius: 9px; border: 1px solid transparent; background: transparent; color: var(--smem-muted); cursor: pointer; }
+.smem-scope .smem-iconbtn:hover { background: var(--smem-sunken); color: inherit; }
+.smem-scope .smem-linkbtn { display: inline-flex; align-items: center; gap: 5px; padding: 2px 0; border: 0; background: none; color: var(--smem-accent-ink); font-size: .82rem; font-weight: 650; cursor: pointer; }
+.smem-scope .smem-linkbtn:hover { text-decoration: underline; }
+.smem-scope .smem-linkbtn--muted { color: var(--smem-muted); }
+.smem-scope .smem-linkbtn--danger { color: var(--smem-bad); }
+
+/* ---- Badges, notices, cards --------------------------------------------- */
+.smem-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; background: var(--smem-sunken); color: var(--smem-soft); font-size: .74rem; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
+.smem-badge--good { background: var(--smem-good-wash); color: var(--smem-good); }
+.smem-badge--bad { background: var(--smem-bad-wash); color: var(--smem-bad); }
+.smem-badge--warn { background: var(--smem-warn-wash); color: var(--smem-warn); }
+.smem-badge--info { background: var(--smem-info-wash); color: var(--smem-info); }
+.smem-notice { display: flex; gap: 12px; align-items: flex-start; margin: 0 0 18px; padding: 13px 16px; border-radius: 12px; background: var(--smem-info-wash); color: inherit; font-size: .92rem; }
+.smem-notice > .smem-icon { margin-top: 2px; color: var(--smem-info); }
+.smem-notice--good { background: var(--smem-good-wash); }
+.smem-notice--good > .smem-icon { color: var(--smem-good); }
+.smem-notice--warn { background: var(--smem-warn-wash); }
+.smem-notice--warn > .smem-icon { color: var(--smem-warn); }
+.smem-notice--bad { background: var(--smem-bad-wash); }
+.smem-notice--bad > .smem-icon { color: var(--smem-bad); }
+.smem-notice__body { min-width: 0; }
+.smem-notice__body a { font-weight: 650; text-decoration: underline; }
+.smem-card { padding: 20px; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); background: var(--smem-panel); }
+.smem-progress { height: 10px; border-radius: 999px; background: var(--smem-sunken); overflow: hidden; }
+.smem-progress > span { display: block; height: 100%; border-radius: inherit; background: var(--smem-accent-ink); min-width: 4px; transition: width .4s ease; }
+@media (prefers-reduced-motion: reduce) { .smem-progress > span { transition: none; } }
+
+/* ---- Gate panels -------------------------------------------------------- */
+.smem-gate { display: grid; justify-items: center; gap: 10px; padding: 44px 24px; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); background: var(--smem-panel); text-align: center; }
+.smem-gate > .smem-icon { color: var(--smem-accent-ink); padding: 12px; width: 52px; height: 52px; border-radius: 50%; background: var(--smem-wash-strong); box-sizing: content-box; margin-bottom: 4px; }
+.smem-scope .smem-gate__title { font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
+.smem-scope .smem-gate__text { color: var(--smem-muted); max-width: 52ch; }
+.smem-gate__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
+.smem-gate--compact { padding: 26px 20px; }
+.smem-gate--compact > .smem-icon { width: 30px; height: 30px; padding: 10px; }
+.smem-gate--inline { margin: 1.2em 0; grid-template-columns: auto 1fr auto; justify-items: start; text-align: left; align-items: center; padding: 16px 18px; }
+.smem-gate--inline > .smem-icon { margin: 0; }
+.smem-gate--inline .smem-gate__actions { margin: 0; }
+@container smem (max-width: 520px) { .smem-gate--inline { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
+
+/* ---- Plans -------------------------------------------------------------- */
+.smem-periods { display: flex; width: fit-content; max-width: 100%; margin: 0 auto 26px; padding: 4px; gap: 4px; flex-wrap: wrap; justify-content: center; border: 1px solid var(--smem-rule); border-radius: 12px; background: var(--smem-panel); }
+.smem-scope .smem-periods__opt { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 6px 16px; border: 0; border-radius: 9px; background: transparent; color: var(--smem-muted); font-size: .9rem; font-weight: 650; cursor: pointer; }
+.smem-scope .smem-periods__opt:hover { color: inherit; background: var(--smem-sunken); }
+.smem-scope .smem-periods__opt[aria-checked="true"] { background: var(--smem-accent); color: var(--smem-on-accent); }
+.smem-scope.smem-dark .smem-periods__opt[aria-checked="true"] { background: var(--smem-accent-ink); color: #0b1520; }
+.smem-periods__save { padding: 1px 7px; border-radius: 999px; background: var(--smem-good-wash); color: var(--smem-good); font-size: .7rem; font-weight: 800; }
+.smem-periods__opt[aria-checked="true"] .smem-periods__save { background: rgba(255, 255, 255, 0.22); color: inherit; }
+.smem-plans__grid { display: grid; grid-template-columns: repeat(var(--smem-cols, 3), minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+@container smem (max-width: 700px) { .smem-plans__grid { grid-template-columns: repeat(min(var(--smem-cols, 3), 2), minmax(0, 1fr)); } }
+@container smem (max-width: 580px) { .smem-plans__grid { grid-template-columns: 1fr; } }
+.smem-plan { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 26px 22px 24px; border: 1px solid var(--smem-rule); border-radius: 18px; background: var(--smem-panel); min-width: 0; }
+.smem-plan--featured { border: 2px solid var(--smem-accent-ink); background: var(--smem-wash); padding: 25px 21px 23px; }
+.smem-plan--current { border-color: var(--smem-good); }
+.smem-plan__badge { position: absolute; top: -12px; left: 22px; padding: 3px 11px; border-radius: 999px; background: var(--smem-accent); color: var(--smem-on-accent); font-size: .72rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+.smem-scope.smem-dark .smem-plan__badge { background: var(--smem-accent-ink); color: #0b1520; }
+.smem-plan__badge--current, .smem-scope.smem-dark .smem-plan__badge--current { background: var(--smem-good); color: #fff; }
+.smem-scope.smem-dark .smem-plan__badge--current { color: #07210f; }
+.smem-scope .smem-plan__name { font-size: 1.2rem; font-weight: 750; }
+.smem-scope .smem-plan__blurb { font-size: .9rem; color: var(--smem-muted); margin-top: -6px; }
+.smem-plan__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+.smem-plan__amount { font-size: 2.1rem; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; color: var(--smem-strong); font-variant-numeric: tabular-nums; }
+.smem-plan__per { color: var(--smem-muted); font-size: .92rem; font-weight: 600; }
+.smem-scope .smem-plan__na { font-size: .82rem; color: var(--smem-muted); margin-top: -8px; }
+.smem-plan__benefits { display: grid; gap: 9px; padding-top: 14px; border-top: 1px solid var(--smem-rule-soft); font-size: .92rem; }
+.smem-plan__benefits li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; }
+.smem-plan__benefits .smem-icon { color: var(--smem-good); margin-top: 3px; }
+.smem-scope .smem-plans__foot { margin: 22px auto 0; max-width: 70ch; text-align: center; font-size: .84rem; color: var(--smem-muted); }
+
+/* ---- Forms -------------------------------------------------------------- */
+.smem-scope .smem-form { display: grid; gap: 16px; align-content: start; height: auto; min-height: 0; }
+.smem-scope .smem-form > * { align-self: start; min-width: 0; }
+.smem-field { display: grid; gap: 6px; min-width: 0; align-content: start; }
+.smem-field > * { margin: 0 !important; }
+.smem-scope .smem-label { display: block; font-size: .84rem; font-weight: 700; color: inherit; }
+.smem-optional { font-weight: 500; color: var(--smem-muted); }
+.smem-scope .smem-help { display: block; font-size: .78rem; color: var(--smem-muted); line-height: 1.45; }
+.smem-scope :is(.smem-input, .smem-select) { display: block; width: 100%; min-height: 44px; height: auto; padding: 10px 12px; border: 1px solid var(--smem-rule); border-radius: 10px; background: transparent; color: inherit; font-size: .95rem; font-weight: 400; line-height: 1.4; box-shadow: none; transition: border-color .12s ease; }
+.smem-scope .smem-select { padding-right: 32px; }
+.smem-scope .smem-select--sm { width: auto; min-height: 34px; padding: 5px 30px 5px 10px; font-size: .84rem; border-radius: 8px; }
+.smem-scope.smem-dark .smem-select option { background: var(--smem-surface); color: var(--smem-surface-ink); }
+.smem-scope .smem-textarea { min-height: 96px; resize: vertical; }
+.smem-scope :is(.smem-input, .smem-select):focus { border-color: var(--smem-accent-ink); outline: 2px solid var(--smem-accent-ink); outline-offset: 0; box-shadow: none; background: transparent; }
+.smem-scope .smem-input::placeholder { color: var(--smem-muted); opacity: .85; }
+.smem-field.is-error :is(.smem-input, .smem-drop) { border-color: var(--smem-bad) !important; }
+.smem-field__err { font-size: .8rem; font-weight: 650; color: var(--smem-bad); }
+.smem-form__error { padding: 11px 14px; border-radius: 10px; background: var(--smem-bad-wash); color: var(--smem-bad); font-size: .88rem; font-weight: 650; }
+.smem-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@container smem (max-width: 520px) { .smem-row { grid-template-columns: 1fr; } }
+.smem-scope .smem-check { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; cursor: pointer; }
+.smem-scope .smem-check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--smem-accent-ink); flex: 0 0 auto; }
+.smem-hp { position: absolute !important; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.smem-affix { display: flex; align-items: stretch; border: 1px solid var(--smem-rule); border-radius: 10px; overflow: hidden; }
+.smem-affix:focus-within { border-color: var(--smem-accent-ink); outline: 2px solid var(--smem-accent-ink); }
+.smem-affix__pre { display: flex; align-items: center; padding: 0 12px; background: var(--smem-sunken); color: var(--smem-muted); font-weight: 700; font-size: .86rem; }
+.smem-scope .smem-affix .smem-input { border: 0; border-radius: 0; outline: none; }
+
+/* Payment methods */
+.smem-methods { display: grid; gap: 8px; }
+.smem-methods > .smem-label { margin-bottom: 2px; }
+.smem-scope .smem-method { position: relative; display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--smem-rule); border-radius: 12px; cursor: pointer; transition: border-color .12s ease, background-color .12s ease; }
+.smem-method:hover { border-color: var(--smem-muted); }
+.smem-method input { position: absolute; opacity: 0; pointer-events: none; }
+.smem-method__dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--smem-rule); }
+.smem-method__label { font-weight: 650; font-size: .94rem; }
+.smem-method__kind { font-size: .76rem; color: var(--smem-muted); }
+.smem-method:has(input:checked) { border-color: var(--smem-accent-ink); background: var(--smem-wash); }
+.smem-method:has(input:checked) .smem-method__dot { border: 6px solid var(--smem-accent-ink); }
+.smem-method:has(input:focus-visible) { outline: 2px solid var(--smem-accent-ink); outline-offset: 2px; }
+.smem-method-detail { display: grid; gap: 10px; justify-items: start; }
+.smem-paydetail { position: relative; width: 100%; padding: 14px 16px; border-radius: 12px; background: var(--smem-sunken); }
+.smem-scope .smem-paydetail__text { margin: 0; padding: 0 70px 0 0; background: none; border: 0; color: inherit; font-family: inherit; font-size: .92rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.smem-paydetail [data-smem-copy] { position: absolute; top: 8px; right: 8px; }
+.smem-summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: var(--smem-wash); }
+.smem-summary__what { font-size: .9rem; color: var(--smem-soft); }
+.smem-summary__amount { font-size: 1.35rem; font-weight: 800; color: var(--smem-strong); font-variant-numeric: tabular-nums; }
+.smem-scope .smem-drop { display: flex; align-items: center; gap: 10px; padding: 14px; border: 1px dashed var(--smem-rule); border-radius: 12px; color: var(--smem-muted); font-size: .9rem; cursor: pointer; }
+.smem-scope .smem-drop:hover { border-color: var(--smem-accent-ink); color: var(--smem-accent-ink); }
+.smem-drop.is-filled { border-style: solid; border-color: var(--smem-good); color: var(--smem-good); }
+.smem-scope .smem-file { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+
+/* Giving */
+.smem-goal { display: grid; gap: 10px; margin-bottom: 18px; }
+.smem-goal__nums { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.smem-goal__raised { font-size: 1.7rem; font-weight: 800; color: var(--smem-strong); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.smem-goal__of { color: var(--smem-muted); font-weight: 600; }
+.smem-scope .smem-goal__meta { font-size: .84rem; color: var(--smem-muted); }
+.smem-giveform { gap: 18px; }
+.smem-freq { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; gap: 4px; border: 1px solid var(--smem-rule); border-radius: 12px; }
+.smem-seg { position: relative; cursor: pointer; }
+.smem-seg input { position: absolute; opacity: 0; pointer-events: none; }
+.smem-seg span { display: flex; align-items: center; justify-content: center; min-height: 40px; border-radius: 9px; color: var(--smem-muted); font-weight: 650; font-size: .92rem; }
+.smem-seg:hover span { color: inherit; background: var(--smem-sunken); }
+.smem-seg input:checked + span { background: var(--smem-accent); color: var(--smem-on-accent); }
+.smem-scope.smem-dark .smem-seg input:checked + span { background: var(--smem-accent-ink); color: #0b1520; }
+.smem-seg input:focus-visible + span { outline: 2px solid var(--smem-accent-ink); outline-offset: 2px; }
+.smem-amounts { display: grid; gap: 10px; }
+.smem-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+.smem-chip { position: relative; cursor: pointer; }
+.smem-chip input { position: absolute; opacity: 0; pointer-events: none; }
+.smem-chip span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 10px; border: 1px solid var(--smem-rule); border-radius: 11px; font-weight: 700; font-variant-numeric: tabular-nums; transition: border-color .12s ease, background-color .12s ease; }
+.smem-chip:hover span { border-color: var(--smem-muted); }
+.smem-chip input:checked + span { border: 2px solid var(--smem-accent-ink); background: var(--smem-wash); color: var(--smem-accent-ink); }
+.smem-chip input:focus-visible + span { outline: 2px solid var(--smem-accent-ink); outline-offset: 2px; }
+.smem-thanks { display: grid; justify-items: center; gap: 10px; padding: 30px 10px; text-align: center; }
+.smem-thanks > .smem-icon { width: 30px; height: 30px; padding: 14px; box-sizing: content-box; border-radius: 50%; background: var(--smem-good-wash); color: var(--smem-good); }
+.smem-scope .smem-thanks h3 { font-size: 1.3rem; font-weight: 750; }
+.smem-scope .smem-thanks p { color: var(--smem-muted); max-width: 46ch; }
+
+/* ---- My membership ------------------------------------------------------ */
+.smem-standing { display: grid; gap: 16px; }
+.smem-standing--none { grid-template-columns: 1fr auto; align-items: center; }
+@container smem (max-width: 560px) { .smem-standing--none { grid-template-columns: 1fr; } }
+.smem-standing__main { display: grid; gap: 6px; justify-items: start; }
+.smem-scope .smem-standing__plan { font-size: 1.6rem; font-weight: 800; line-height: 1.15; }
+.smem-scope .smem-standing__period, .smem-scope .smem-standing__text { color: var(--smem-muted); }
+.smem-standing .smem-notice { margin: 0; }
+.smem-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding: 14px 0 0; border-top: 1px solid var(--smem-rule-soft); }
+.smem-facts dt { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--smem-muted); }
+.smem-facts dd { margin-top: 3px; font-weight: 650; }
+.smem-standing__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.smem-waiting { display: grid; gap: 10px; }
+.smem-wait { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding: 16px 18px; background: var(--smem-warn-wash); border-color: transparent; }
+.smem-wait__main { display: grid; gap: 2px; min-width: 0; }
+.smem-wait__amount { font-size: 1.15rem; font-weight: 800; color: var(--smem-strong); }
+.smem-wait__what { font-weight: 600; }
+.smem-wait__meta, .smem-wait__proofs { font-size: .8rem; color: var(--smem-muted); }
+.smem-wait__actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.smem-wait--withdrawal { background: var(--smem-info-wash); }
+.smem-wait__request { flex: 1 0 100%; display: grid; gap: 6px; justify-items: start; padding-top: 10px; border-top: 1px solid var(--smem-rule-soft); font-size: .88rem; }
+.smem-wait__request p { overflow-wrap: anywhere; }
+.smem-trail { flex: 1 0 100%; font-size: .84rem; }
+.smem-scope .smem-trail summary { cursor: pointer; color: var(--smem-accent-ink); font-weight: 650; width: fit-content; }
+.smem-trail ol { display: grid; gap: 4px; margin-top: 8px; padding-left: 14px; border-left: 2px solid var(--smem-rule); }
+.smem-trail li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; }
+.smem-trail time { color: var(--smem-muted); }
+.smem-withdrawform { display: grid; gap: 14px; }
+.smem-tablewrap { overflow-x: auto; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); }
+.smem-scope .smem-table { width: 100%; border-collapse: collapse; margin: 0; border: 0; font-size: .9rem; }
+.smem-scope .smem-table :is(th, td) { padding: 11px 14px; border: 0; border-bottom: 1px solid var(--smem-rule-soft); text-align: left; vertical-align: top; background: transparent; color: inherit; }
+.smem-scope .smem-table tr:last-child td { border-bottom: 0; }
+.smem-scope .smem-table th { font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--smem-muted); background: var(--smem-sunken); white-space: nowrap; }
+.smem-scope .smem-table .smem-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.smem-table__note { display: block; margin-top: 4px; font-size: .78rem; color: var(--smem-muted); }
+.smem-prefs { display: grid; gap: 4px; padding: 6px 18px; }
+.smem-toggle { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; padding: 12px 0; }
+.smem-toggle + .smem-toggle { border-top: 1px solid var(--smem-rule-soft); }
+.smem-toggle label { display: grid; gap: 2px; cursor: pointer; }
+.smem-toggle__label { font-weight: 650; color: var(--smem-strong); }
+.smem-scope .smem-switch { appearance: none; -webkit-appearance: none; position: relative; width: 44px; height: 26px; margin-top: 1px; border-radius: 999px; border: 1px solid var(--smem-rule); background: var(--smem-sunken); cursor: pointer; transition: background-color .15s ease; flex: 0 0 auto; }
+.smem-scope .smem-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--smem-muted); transition: transform .15s ease, background-color .15s ease; }
+.smem-scope .smem-switch:checked { background: var(--smem-accent-ink); border-color: transparent; }
+.smem-scope .smem-switch:checked::after { transform: translateX(18px); background: var(--smem-surface); }
+@media (prefers-reduced-motion: reduce) { .smem-scope .smem-switch, .smem-scope .smem-switch::after { transition: none; } }
+
+/* ---- Sponsors page ------------------------------------------------------ */
+.smem-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.smem-stat { display: grid; gap: 2px; padding: 18px 20px; border-radius: var(--smem-radius); background: var(--smem-wash); }
+.smem-stat__n { font-size: 1.6rem; font-weight: 800; color: var(--smem-strong); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.smem-stat__l { font-size: .84rem; color: var(--smem-muted); font-weight: 600; }
+.smem-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.smem-project { display: flex; flex-direction: column; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); overflow: hidden; background: var(--smem-panel); }
+.smem-project.is-closed { opacity: .8; }
+.smem-project__media { display: block; aspect-ratio: 16 / 9; background: var(--smem-sunken); }
+.smem-project__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.smem-project__ph { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; color: var(--smem-accent-ink); background: var(--smem-wash); }
+.smem-project__body { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px 18px; flex: 1; align-items: flex-start; }
+.smem-project__body .smem-progress { width: 100%; }
+.smem-scope .smem-project__title { font-size: 1.08rem; font-weight: 750; line-height: 1.3; }
+.smem-scope .smem-project__title a { color: var(--smem-strong); }
+.smem-scope .smem-project__text { font-size: .88rem; color: var(--smem-muted); }
+.smem-scope .smem-project__nums { font-size: .84rem; color: var(--smem-muted); margin-top: auto; }
+.smem-project__nums strong { color: var(--smem-strong); }
+.smem-level + .smem-level { margin-top: 22px; }
+.smem-scope .smem-level__name { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--smem-muted); }
+.smem-level__name .smem-icon { color: var(--smem-gold); }
+.smem-sponsors { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.smem-sponsors--lead { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.smem-sponsor { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); background: var(--smem-panel); min-width: 0; }
+.smem-sponsors--lead .smem-sponsor { padding: 18px 20px; }
+.smem-scope .smem-sponsor__logo { width: 56px; height: 56px; object-fit: contain; border-radius: 10px; background: #fff; padding: 4px; flex: 0 0 auto; }
+.smem-sponsors--lead .smem-sponsor__logo, .smem-sponsors--lead .smem-sponsor__initials { width: 72px; height: 72px; }
+.smem-sponsor__initials { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--smem-wash-strong); color: var(--smem-accent-ink); font-weight: 800; font-size: .95rem; flex: 0 0 auto; }
+.smem-sponsor__body { display: grid; gap: 2px; min-width: 0; }
+.smem-scope .smem-sponsor__name { font-weight: 750; color: var(--smem-strong); overflow-wrap: anywhere; }
+.smem-sponsor__note, .smem-sponsor__backs { font-size: .8rem; color: var(--smem-muted); }
+.smem-people { display: flex; flex-wrap: wrap; gap: 8px; }
+.smem-person { display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px 4px 4px; border: 1px solid var(--smem-rule-soft); border-radius: 999px; font-size: .88rem; font-weight: 600; }
+.smem-scope .smem-person__avatar { width: 32px; height: 32px; border-radius: 50%; }
+.smem-cta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 36px; padding: 22px 24px; border-radius: var(--smem-radius); background: var(--smem-wash); }
+.smem-cta strong { font-size: 1.05rem; color: var(--smem-strong); }
+.smem-scope .smem-cta p { color: var(--smem-muted); font-size: .9rem; margin-top: 2px; }
+.smem-cta__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---- Members area ------------------------------------------------------- */
+.smem-standbar { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding: 14px 16px; border-radius: var(--smem-radius); background: var(--smem-wash); }
+.smem-scope .smem-standbar__avatar { width: 44px; height: 44px; border-radius: 50%; flex: 0 0 auto; }
+.smem-standbar__text { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.smem-standbar__name { font-size: 1.05rem; color: var(--smem-strong); }
+.smem-standbar__meta { font-size: .84rem; color: var(--smem-muted); }
+@container smem (max-width: 520px) { .smem-standbar { flex-wrap: wrap; } .smem-standbar .smem-btn { width: 100%; } }
+.smem-tabs { display: flex; gap: 4px; margin-bottom: 18px; border-bottom: 1px solid var(--smem-rule); overflow-x: auto; scrollbar-width: thin; }
+.smem-scope .smem-tab { display: inline-flex; align-items: center; gap: 8px; padding: 11px 14px; margin-bottom: -1px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; color: var(--smem-muted); font-size: .92rem; font-weight: 650; cursor: pointer; white-space: nowrap; }
+.smem-scope .smem-tab:hover { color: inherit; background: none; }
+.smem-scope .smem-tab[aria-selected="true"] { color: var(--smem-accent-ink); border-bottom-color: var(--smem-accent-ink); }
+.smem-resources { display: grid; gap: 8px; }
+.smem-res { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); }
+.smem-res__icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 11px; background: var(--smem-wash-strong); color: var(--smem-accent-ink); }
+.smem-res.is-locked .smem-res__icon { background: var(--smem-sunken); color: var(--smem-muted); }
+.smem-res__body { display: grid; gap: 2px; min-width: 0; }
+.smem-res__title { font-weight: 700; color: var(--smem-strong); overflow-wrap: anywhere; }
+.smem-res.is-locked .smem-res__title { color: var(--smem-soft); }
+.smem-res__note { font-size: .88rem; color: var(--smem-soft); }
+.smem-res__meta { font-size: .76rem; color: var(--smem-muted); font-weight: 600; }
+@container smem (max-width: 520px) { .smem-res { grid-template-columns: 42px minmax(0, 1fr); } .smem-res > .smem-btn { grid-column: 1 / -1; } }
+
+/* Board */
+.smem-board__bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+.smem-scope .smem-board__intro { font-size: .9rem; color: var(--smem-muted); }
+.smem-board__tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.smem-board__list { display: grid; gap: 8px; }
+.smem-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); background: var(--smem-panel); }
+.smem-item--s { grid-template-columns: 58px minmax(0, 1fr); }
+.smem-item.is-pinned { border-color: var(--smem-accent-ink); }
+.smem-scope .smem-item__open { display: grid; gap: 4px; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; min-width: 0; font: inherit; }
+.smem-item__title { font-weight: 700; color: var(--smem-strong); overflow-wrap: anywhere; }
+.smem-item__open:hover .smem-item__title { text-decoration: underline; }
+.smem-item__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .8rem; color: var(--smem-muted); }
+.smem-item__meta .smem-icon { vertical-align: -2px; }
+.smem-item__replies { display: inline-flex; align-items: center; gap: 5px; font-size: .84rem; color: var(--smem-muted); font-weight: 600; }
+.smem-scope .smem-vote { display: grid; justify-items: center; gap: 0; width: 58px; padding: 6px 0 8px; border: 1px solid var(--smem-rule); border-radius: 12px; background: transparent; color: inherit; cursor: pointer; }
+.smem-scope .smem-vote:hover:not(:disabled) { border-color: var(--smem-accent-ink); }
+.smem-scope .smem-vote[aria-pressed="true"] { border-color: var(--smem-accent-ink); background: var(--smem-wash-strong); color: var(--smem-accent-ink); }
+.smem-scope .smem-vote:disabled { cursor: default; opacity: .75; }
+.smem-vote__n { font-size: 1.1rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.smem-vote__l { font-size: .66rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--smem-muted); }
+.smem-vote[aria-pressed="true"] .smem-vote__l { color: inherit; }
+.smem-status { display: inline-flex; padding: 1px 8px; border-radius: 999px; font-size: .72rem; font-weight: 700; background: var(--smem-sunken); color: var(--smem-soft); }
+.smem-status--planned { background: var(--smem-info-wash); color: var(--smem-info); }
+.smem-status--done { background: var(--smem-good-wash); color: var(--smem-good); }
+.smem-status--declined { background: var(--smem-bad-wash); color: var(--smem-bad); }
+.smem-pager { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; font-size: .86rem; color: var(--smem-muted); }
+.smem-thread { display: grid; gap: 16px; }
+.smem-thread__back { justify-self: start; }
+.smem-post { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+.smem-scope .smem-post__avatar { width: 40px; height: 40px; border-radius: 50%; }
+.smem-post__main { display: grid; gap: 8px; min-width: 0; }
+.smem-post__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: .84rem; color: var(--smem-muted); }
+.smem-post__author { font-weight: 700; color: var(--smem-strong); }
+.smem-scope .smem-post__title { font-size: 1.35rem; font-weight: 750; line-height: 1.25; }
+.smem-post__body { font-size: .96rem; overflow-wrap: anywhere; }
+.smem-scope .smem-post__body p + p { margin-top: .7em; }
+.smem-post__tools { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.smem-post--lead { padding: 18px; border: 1px solid var(--smem-rule); border-radius: var(--smem-radius); background: var(--smem-panel); }
+.smem-post--lead.has-vote { grid-template-columns: 40px minmax(0, 1fr) auto; }
+.smem-replies { display: grid; gap: 16px; padding-left: 20px; border-left: 2px solid var(--smem-rule-soft); }
+.smem-scope .smem-replies__title { font-size: .8rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--smem-muted); }
+.smem-replyform { display: grid; gap: 8px; }
+.smem-replyform .smem-btn { justify-self: end; }
+.smem-modtools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--smem-sunken); font-size: .82rem; }
+@container smem (max-width: 520px) { .smem-post--lead.has-vote { grid-template-columns: 40px minmax(0, 1fr); } .smem-post--lead.has-vote .smem-vote { grid-column: 2; justify-self: start; } .smem-replies { padding-left: 12px; } }
+
+/* ---- Dialog, toast ------------------------------------------------------ */
+.smem-modal { position: fixed; inset: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(10, 15, 20, 0.6); }
+.smem-modal__panel { display: flex; flex-direction: column; width: 100%; max-width: 520px; max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); background: var(--smem-page-bg, var(--smem-surface)); color: var(--smem-surface-ink); border: 1px solid var(--smem-rule); border-radius: 18px; overflow: hidden; }
+.smem-scope.smem-dark .smem-modal__panel { color: var(--smem-text); }
+.smem-scope:not(.smem-dark) .smem-modal__panel { background: #ffffff; }
+.smem-modal__panel:focus { outline: none; }
+.smem-modal__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px 14px 14px 22px; border-bottom: 1px solid var(--smem-rule-soft); }
+.smem-scope .smem-modal__title { font-size: 1.2rem; font-weight: 750; line-height: 1.25; }
+.smem-modal__body { padding: 20px 22px; overflow-y: auto; }
+.smem-scope .smem-modal__text { color: var(--smem-soft); }
+.smem-modal__foot { display: flex; gap: 8px; justify-content: flex-end; padding: 12px 16px; border-top: 1px solid var(--smem-rule-soft); background: var(--smem-sunken); }
+.smem-modal__foot:empty { display: none; }
+@media (max-width: 560px) {
+  .smem-modal { padding: 0; align-items: flex-end; }
+  .smem-modal__panel { max-height: 94vh; max-height: 94dvh; border-radius: 18px 18px 0 0; }
+  .smem-modal__foot { flex-direction: column-reverse; }
+  .smem-modal__foot .smem-btn { width: 100%; }
+}
+.smem-toast { position: fixed; z-index: 100001; left: 50%; bottom: 24px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: 12px; background: #17212b; color: #f3f6f9; font-size: .9rem; font-weight: 650; line-height: 1.4; }
+.smem-toast--good { background: #14532d; color: #f0fdf4; }
+.smem-toast--bad { background: #7a1d16; color: #fff5f4; }
+.smem-scope.smem-dark .smem-toast { background: #eaeff4; color: #0f1720; }
+.smem-scope.smem-dark .smem-toast--good { background: #c7f5d6; color: #06240f; }
+.smem-scope.smem-dark .smem-toast--bad { background: #fdd5d1; color: #3d0b07; }
+.smem-spin { display: inline-block; width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: smem-spin .7s linear infinite; }
+@keyframes smem-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .smem-spin { animation-duration: 2s; } }
+
+@media print {
+  .smem-btn, .smem-tabs, .smem-board__tools, .smem-modal, .smem-toast { display: none !important; }
+}
+
+/* Narrow screens: each payment becomes a small block instead of a wide row. */
+@container smem (max-width: 560px) {
+  .smem-tablewrap { overflow: visible; }
+  .smem-scope .smem-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .smem-scope .smem-table tr { display: flex; flex-wrap: wrap; gap: 2px 12px; padding: 12px 14px; border-bottom: 1px solid var(--smem-rule-soft); }
+  .smem-scope .smem-table tr:last-child { border-bottom: 0; }
+  .smem-scope .smem-table td { padding: 0; border: 0; }
+  .smem-scope .smem-table td:nth-child(2) { flex: 1 0 100%; order: -1; font-weight: 650; }
+  .smem-scope .smem-table td:first-child, .smem-scope .smem-table td:nth-child(3) { color: var(--smem-muted); font-size: .84rem; }
+  .smem-scope .smem-table .smem-num { margin-left: auto; font-weight: 700; }
+  .smem-scope .smem-table td:last-child { flex: 1 0 100%; }
+}
+
+/* Sponsors page: every section sits on the page's centre line, so short rows of cards do not hang to the left. */
+.smem-sponsors-page .smem-section__title, .smem-sponsors-page .smem-level__name { justify-content: center; text-align: center; }
+.smem-sponsors-page .smem-projects { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 340px)); justify-content: center; }
+.smem-sponsors-page .smem-sponsors { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 300px)); justify-content: center; }
+.smem-sponsors-page .smem-sponsors--lead { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 380px)); }
+.smem-sponsors-page .smem-people { justify-content: center; }
+.smem-sponsors-page .smem-stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 260px)); justify-content: center; }
+.smem-sponsors-page .smem-empty { max-width: 520px; margin-left: auto; margin-right: auto; }

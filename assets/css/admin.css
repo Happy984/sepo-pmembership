@@ -1,0 +1,72 @@
+/* Sepo Membership — dashboard screens. Flat: borders and tints, no shadows. */
+.smem-admin .smem-muted { color: #646970; }
+.smem-admin .smem-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.smem-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 16px 0 20px; }
+.smem-statcard { display: grid; gap: 2px; padding: 16px 18px; border: 1px solid #dcdcde; border-radius: 8px; background: #fff; color: #1d2327; text-decoration: none; }
+.smem-statcard:hover, .smem-statcard:focus { border-color: #2271b1; color: #1d2327; box-shadow: none; }
+.smem-statcard__n { font-size: 24px; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.smem-statcard__l { color: #646970; font-size: 13px; }
+.smem-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; align-items: start; }
+.smem-panelbox { margin: 0 0 16px; padding: 14px 18px 16px; border: 1px solid #dcdcde; border-radius: 8px; background: #fff; }
+.smem-panelbox > h2:first-child, .smem-panelbox form > h2:first-child { margin-top: 4px; }
+.smem-panelbox h2 { font-size: 15px; }
+.smem-admin .smem-table td, .smem-admin .smem-table th { vertical-align: top; }
+.smem-actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start; }
+.smem-actions form { margin: 0; }
+.smem-reject { position: relative; }
+.smem-reject summary { list-style: none; }
+.smem-reject summary::-webkit-details-marker { display: none; }
+.smem-reject[open] form { display: grid; gap: 6px; margin-top: 6px; min-width: 220px; }
+.smem-pill { display: inline-block; padding: 2px 9px; border-radius: 999px; background: #f0f0f1; color: #3c434a; font-size: 12px; font-weight: 600; line-height: 1.6; white-space: nowrap; vertical-align: middle; }
+.smem-pill--good { background: #edfaef; color: #00762e; }
+.smem-pill--warn { background: #fcf9e8; color: #8a5a00; }
+.smem-pill--bad { background: #fcf0f1; color: #b32d2e; }
+h1 .smem-pill { font-size: 13px; margin-left: 6px; }
+.smem-inline { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; margin: 8px 0; }
+.smem-inline label { display: grid; gap: 4px; font-weight: 600; font-size: 13px; }
+.smem-inline label input:not([type="checkbox"]):not([type="radio"]), .smem-inline select { min-width: 120px; }
+.smem-inline .small-text { width: 90px; min-width: 0 !important; }
+.smem-inline form { margin: 0; }
+.smem-grow { flex: 1 1 320px; }
+.smem-grow input { width: 100%; }
+.smem-block { display: grid; gap: 4px; margin: 8px 0; font-weight: 600; font-size: 13px; }
+.smem-block textarea { width: 100%; }
+.smem-check { display: inline-flex; gap: 6px; align-items: center; margin-right: 16px; font-weight: 400; }
+.smem-check--danger { color: #b32d2e; }
+.smem-filter { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0 12px; clear: both; padding-top: 6px; }
+.smem-sum { margin-left: auto; }
+.smem-dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0 0 12px; }
+.smem-dl dt { color: #646970; }
+.smem-dl dd { margin: 0; font-weight: 600; }
+.smem-proj { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; margin: 0 0 12px; }
+.smem-bar { grid-column: 1 / -1; height: 6px; border-radius: 999px; background: #f0f0f1; overflow: hidden; }
+.smem-bar span { display: block; height: 100%; background: #2271b1; }
+.smem-danger { margin-top: 24px; }
+.smem-planrow legend { padding: 0 6px; font-weight: 700; font-size: 14px; }
+.smem-planrow legend code { font-weight: 400; font-size: 12px; }
+.smem-planrow--new { border-style: dashed; }
+.smem-plans-admin { max-width: 1100px; }
+.smem-methodrow textarea { font-family: inherit; }
+.smem-notice-tint { border-left-width: 1px !important; background: #edf7ef; border-color: #c3e6cb !important; }
+.smem-notice-tint--bad { background: #fcf0f1; border-color: #f1c7c9 !important; }
+.smem-notice-tint--warn { background: #fcf9e8; border-color: #f0e2a8 !important; }
+.smem-box { padding: 4px 14px; border: 1px solid #c5d9ed; border-radius: 8px; background: #f0f6fc; max-width: 900px; }
+#smem-resource [hidden] { display: none; }
+.smem-admin .smem-filter select, .smem-admin .smem-filter input[type="search"] { width: auto; max-width: 280px; min-height: 30px; height: 30px; padding: 0 8px; border-radius: 4px; font-size: 14px; line-height: 2; }
+.smem-admin .smem-filter select { padding-right: 24px; }
+.smem-admin .smem-inline input:not([type="checkbox"]):not([type="radio"]), .smem-admin .smem-inline select, .smem-admin .smem-reject input { width: auto; height: 30px; min-height: 30px; padding: 0 8px; border-radius: 4px; font-size: 14px; }
+.smem-admin h2 { font-size: 16px; line-height: 1.4; margin: 1.2em 0 .6em; }
+.smem-admin h3 { font-size: 14px; line-height: 1.4; margin: 1.2em 0 .5em; }
+.smem-admin .smem-inline select { min-width: 160px; padding-right: 24px; }
+.smem-pill--info { background: #f0f6fc; color: #135e96; }
+.smem-reason { margin-top: 6px; padding: 6px 10px; border-radius: 6px; background: #f0f6fc; }
+.smem-history { margin-top: 6px; }
+.smem-history summary { cursor: pointer; color: #2271b1; }
+.smem-history ol { margin: 6px 0 0 18px; }
+.smem-history li { margin: 0 0 4px; }
+.smem-reject summary.button-link { cursor: pointer; }
+.smem-reject[open] input[name="note"] { width: 100%; }
+#smem-resource [data-smem-src] { margin-top: 4px; }
+.smem-note-warn { max-width: 640px; padding: 8px 12px; border-radius: 6px; background: #fcf9e8; color: #50575e; }
+.smem-note-ok { max-width: 640px; padding: 8px 12px; border-radius: 6px; background: #edfaef; color: #1d2327; }
+#smem-resource .smem-note-ok[hidden] { display: none; }
