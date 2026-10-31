@@ -124,7 +124,7 @@ Nothing opens until you confirm.
 3. Go to **Plugins** and activate **Sepo Membership**.
 
 > [!NOTE]
-> GitHub's **Code → Download ZIP** names the folder after the branch, for example `sepo-membership-main`. Rename it to `sepo-membership` before uploading.
+> GitHub's **Code → Download ZIP** names the folder after the branch, for example `sepo-pmembership-main`. Rename it to `sepo-membership` before uploading.
 
 ## Getting started
 
