@@ -1,0 +1,2988 @@
+# Copyright (C) 2026 Euneolink Solutions
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sepo Membership 1.2.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sepo-membership\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-08T13:04:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: sepo-membership\n"
+
+#. Plugin Name of the plugin
+#: sepo-membership.php
+#: includes/Privacy.php:24
+#: includes/Privacy.php:28
+#: includes/Privacy.php:39
+msgid "Sepo Membership"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: sepo-membership.php
+msgid "https://edu.sepodesk.com/"
+msgstr ""
+
+#. Description of the plugin
+#: sepo-membership.php
+msgid "Paid membership plans with pricing tables, manual and link payments confirmed by you, donations with goals, a sponsors page, and a members area with tier-gated downloads, links, discussions and suggestions. Works with Sepo WordPress Bridge tiers. Runs on WordPress alone."
+msgstr ""
+
+#. Author of the plugin
+#: sepo-membership.php
+msgid "Euneolink Solutions"
+msgstr ""
+
+#: includes/Admin/Actions.php:23
+msgid "You cannot manage the membership."
+msgstr ""
+
+#: includes/Admin/Actions.php:106
+msgid "Choose a plan and a period."
+msgstr ""
+
+#: includes/Admin/Actions.php:126
+#: includes/Frontend.php:174
+#: includes/Payments.php:75
+#: includes/Payments.php:151
+msgid "Enter the amount."
+msgstr ""
+
+#: includes/Admin/Actions.php:129
+msgid "Enter the giver's name."
+msgstr ""
+
+#: includes/Admin/Actions.php:166
+msgid "No account has that email address or username."
+msgstr ""
+
+#: includes/Admin/Menu.php:38
+#: includes/Admin/Menu.php:65
+#: includes/Admin/Menu.php:137
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/Menu.php:59
+#: includes/Admin/Screens.php:117
+#: includes/Admin/Screens.php:410
+#: includes/Payments.php:456
+#: includes/Privacy.php:64
+msgid "Membership"
+msgstr ""
+
+#: includes/Admin/Menu.php:60
+msgid "Overview"
+msgstr ""
+
+#: includes/Admin/Menu.php:61
+#: includes/Admin/Screens.php:223
+msgid "Members"
+msgstr ""
+
+#: includes/Admin/Menu.php:62
+#: includes/Admin/MetaBoxes.php:89
+#: includes/Admin/Screens.php:349
+#: includes/Admin/Screens.php:378
+#: includes/Privacy.php:88
+msgid "Payments"
+msgstr ""
+
+#: includes/Admin/Menu.php:63
+#: includes/Admin/Screens.php:543
+msgid "Plans and prices"
+msgstr ""
+
+#: includes/Admin/Menu.php:63
+#: includes/Admin/Menu.php:134
+msgid "Plans"
+msgstr ""
+
+#: includes/Admin/Menu.php:64
+#: includes/Admin/Screens.php:504
+msgid "Activity log"
+msgstr ""
+
+#: includes/Admin/Menu.php:65
+#: includes/Admin/Screens.php:658
+msgid "Membership settings"
+msgstr ""
+
+#: includes/Admin/Menu.php:93
+#: includes/Admin/MetaBoxes.php:187
+#: includes/Admin/Screens.php:612
+#: includes/Frontend.php:188
+msgid "Remove"
+msgstr ""
+
+#: includes/Admin/Menu.php:94
+msgid "Delete this for good? This cannot be undone."
+msgstr ""
+
+#: includes/Admin/Menu.php:95
+msgid "Choose file"
+msgstr ""
+
+#: includes/Admin/Menu.php:96
+msgid "Choose a file for this resource"
+msgstr ""
+
+#: includes/Admin/Menu.php:97
+msgid "Use this file"
+msgstr ""
+
+#: includes/Admin/Menu.php:98
+#: includes/Admin/MetaBoxes.php:185
+msgid "No file chosen."
+msgstr ""
+
+#: includes/Admin/Menu.php:99
+msgid "Remove this file now? Members will no longer be able to download it."
+msgstr ""
+
+#: includes/Admin/Menu.php:100
+msgid "The file could not be removed. Reload the page and try again."
+msgstr ""
+
+#: includes/Admin/Menu.php:116
+msgid "Payment confirmed. The payer has been emailed."
+msgstr ""
+
+#: includes/Admin/Menu.php:117
+msgid "Payment marked as not received. The payer has been emailed."
+msgstr ""
+
+#: includes/Admin/Menu.php:118
+msgid "Deleted."
+msgstr ""
+
+#: includes/Admin/Menu.php:119
+msgid "Payment recorded and confirmed."
+msgstr ""
+
+#: includes/Admin/Menu.php:120
+msgid "Plan updated."
+msgstr ""
+
+#: includes/Admin/Menu.php:121
+msgid "Status updated."
+msgstr ""
+
+#: includes/Admin/Menu.php:122
+msgid "Member added."
+msgstr ""
+
+#: includes/Admin/Menu.php:123
+msgid "Settings saved."
+msgstr ""
+
+#: includes/Admin/Menu.php:124
+msgid "Withdrawal approved. The payment is kept, marked withdrawn, and the payer has been emailed."
+msgstr ""
+
+#: includes/Admin/Menu.php:125
+msgid "Withdrawal declined. The payment is waiting again and the payer has been emailed."
+msgstr ""
+
+#: includes/Admin/Menu.php:134
+msgid "No plan has a price yet, so the pricing table is closed. Set prices to open it."
+msgstr ""
+
+#: includes/Admin/Menu.php:137
+msgid "Add at least one payment method so people can join and give."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:49
+msgid "Sponsor name"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:50
+msgid "Project name"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:51
+msgid "Resource title"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:59
+#: includes/Payments.php:457
+msgid "Sponsorship"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:60
+msgid "Sponsor details"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:61
+#: includes/PostTypes.php:106
+msgid "Resource"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:79
+msgid "Goal"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:80
+msgid "Closes on"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:81
+msgid "Close when the goal is reached"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:82
+msgid "Closed now"
+msgstr ""
+
+#. translators: 1: amount raised, 2: number of supporters
+#: includes/Admin/MetaBoxes.php:86
+msgid "Raised %1$s from %2$d supporters."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:91
+msgid "The project page shows its progress, a giving form and its sponsors below the description."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:117
+#: includes/PostTypes.php:59
+msgid "Level"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:122
+msgid "Website"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:123
+msgid "Sponsors these projects"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:126
+msgid "No projects yet."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:132
+msgid "The logo is the featured image. The excerpt is shown under the name. Use Order to place sponsors within their level."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:156
+#: includes/Admin/Screens.php:611
+#: includes/PostTypes.php:31
+#: includes/Privacy.php:75
+#: includes/Privacy.php:89
+msgid "Kind"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:157
+msgid "A file to download"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:158
+msgid "A link"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:159
+#: includes/PostTypes.php:32
+msgid "Plan needed"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:159
+#: includes/Embeds.php:84
+msgid "Any active plan"
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Admin/MetaBoxes.php:162
+#: includes/Embeds.php:87
+#: includes/Render/AreaView.php:184
+msgid "%s and above"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:164
+msgid "Members below this plan see the resource marked as locked, with a way to upgrade."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:170
+msgid "File"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:171
+msgid "Upload a private file"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:172
+msgid "Use a file from the media library"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:177
+msgid "Remove this file"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:179
+msgid "File removed. Members can no longer download it."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:180
+msgid "File to upload"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:181
+msgid "Stored in a private folder that cannot be opened by its address, and handed out only to members whose plan covers it. Uploading a new file replaces the old one."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:186
+msgid "Choose from the media library"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:188
+msgid "Members download it through the same plan check. Files in the media library also have a public address of their own, so anyone who has that address can open it. Use a private upload for anything that must stay members-only."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:190
+msgid "Address"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:190
+msgid "Never shown in the page: members are sent on to it after their plan is checked."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:191
+msgid "The excerpt is shown as the description. Collections let different members areas show different resources."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:204
+msgid "You cannot change this resource."
+msgstr ""
+
+#: includes/Admin/Screens.php:33
+#: includes/Admin/Screens.php:238
+#: includes/Render/AccountView.php:97
+msgid "Active"
+msgstr ""
+
+#: includes/Admin/Screens.php:34
+#: includes/Admin/Screens.php:238
+msgid "Waiting for payment"
+msgstr ""
+
+#: includes/Admin/Screens.php:35
+#: includes/Admin/Screens.php:238
+#: includes/Render/AccountView.php:99
+msgid "Expired"
+msgstr ""
+
+#: includes/Admin/Screens.php:36
+#: includes/Admin/Screens.php:238
+msgid "Cancelled"
+msgstr ""
+
+#: includes/Admin/Screens.php:37
+msgid "Not a member"
+msgstr ""
+
+#: includes/Admin/Screens.php:40
+msgid "Active, cancelled"
+msgstr ""
+
+#: includes/Admin/Screens.php:54
+msgid "Any plan"
+msgstr ""
+
+#: includes/Admin/Screens.php:72
+#: includes/Log.php:102
+#: includes/Payments.php:476
+msgid "Recorded by hand"
+msgstr ""
+
+#: includes/Admin/Screens.php:87
+msgid "monthly"
+msgstr ""
+
+#: includes/Admin/Screens.php:92
+msgid "Unknown"
+msgstr ""
+
+#: includes/Admin/Screens.php:120
+msgid "Active members"
+msgstr ""
+
+#: includes/Admin/Screens.php:121
+msgid "Payments to confirm"
+msgstr ""
+
+#: includes/Admin/Screens.php:122
+#: includes/Admin/Screens.php:400
+msgid "Withdrawal requests"
+msgstr ""
+
+#: includes/Admin/Screens.php:123
+msgid "Membership, last 30 days"
+msgstr ""
+
+#: includes/Admin/Screens.php:124
+msgid "Gifts, last 30 days"
+msgstr ""
+
+#: includes/Admin/Screens.php:131
+#: includes/Render/AccountView.php:48
+msgid "Waiting for confirmation"
+msgstr ""
+
+#: includes/Admin/Screens.php:133
+msgid "Nothing to confirm. New payments appear here as soon as people send them."
+msgstr ""
+
+#: includes/Admin/Screens.php:142
+#: includes/Admin/Screens.php:440
+msgid "Confirm"
+msgstr ""
+
+#: includes/Admin/Screens.php:146
+msgid "All payments waiting"
+msgstr ""
+
+#: includes/Admin/Screens.php:150
+msgid "Members by plan"
+msgstr ""
+
+#: includes/Admin/Screens.php:152
+msgid "No plans yet."
+msgstr ""
+
+#: includes/Admin/Screens.php:152
+msgid "Set up plans"
+msgstr ""
+
+#. translators: 1: waiting, 2: expired, 3: cancelled
+#: includes/Admin/Screens.php:163
+msgid "%1$d waiting for payment · %2$d expired · %3$d cancelled"
+msgstr ""
+
+#: includes/Admin/Screens.php:169
+msgid "Open projects"
+msgstr ""
+
+#: includes/Admin/Screens.php:171
+msgid "No open projects."
+msgstr ""
+
+#: includes/Admin/Screens.php:171
+#: includes/PostTypes.php:77
+msgid "Add a project"
+msgstr ""
+
+#: includes/Admin/Screens.php:181
+msgid "Pages and shortcodes"
+msgstr ""
+
+#: includes/Admin/Screens.php:183
+msgid "Pricing table and joining."
+msgstr ""
+
+#: includes/Admin/Screens.php:184
+msgid "Each member's plan, payments and choices."
+msgstr ""
+
+#: includes/Admin/Screens.php:185
+msgid "Downloads, links, discussions and suggestions. Every attribute is optional."
+msgstr ""
+
+#: includes/Admin/Screens.php:186
+msgid "Projects, sponsors by level and listed members."
+msgstr ""
+
+#: includes/Admin/Screens.php:187
+msgid "Giving form, general or for one project."
+msgstr ""
+
+#: includes/Admin/Screens.php:192
+msgid "No page set"
+msgstr ""
+
+#: includes/Admin/Screens.php:194
+msgid "Part of any page, for members at a plan or above."
+msgstr ""
+
+#: includes/Admin/Screens.php:197
+msgid "Plans use the tiers from Sepo WordPress Bridge. Its tier gates open for members whose plan here is active and paid."
+msgstr ""
+
+#: includes/Admin/Screens.php:197
+msgid "Sepo WordPress Bridge is active but has no tiers yet. Add tiers there to share them, or use the plans set up here."
+msgstr ""
+
+#: includes/Admin/Screens.php:198
+msgid "Plans use the tiers set up here. With Sepo WordPress Bridge active, they are shared with it."
+msgstr ""
+
+#: includes/Admin/Screens.php:224
+#: includes/Admin/Screens.php:233
+msgid "Add member"
+msgstr ""
+
+#: includes/Admin/Screens.php:228
+msgid "Add a member by hand"
+msgstr ""
+
+#: includes/Admin/Screens.php:228
+msgid "Puts an existing account on a plan, active at once, with no payment. Use Record a payment on the member's page when money has arrived."
+msgstr ""
+
+#: includes/Admin/Screens.php:229
+msgid "Email or username"
+msgstr ""
+
+#: includes/Admin/Screens.php:230
+#: includes/Admin/Screens.php:252
+#: includes/Admin/Screens.php:303
+#: includes/Admin/Screens.php:314
+#: includes/Admin/Screens.php:337
+#: includes/Privacy.php:65
+msgid "Plan"
+msgstr ""
+
+#: includes/Admin/Screens.php:231
+#: includes/Admin/Screens.php:315
+#: includes/Admin/Screens.php:338
+msgid "Period"
+msgstr ""
+
+#: includes/Admin/Screens.php:232
+#: includes/Admin/Screens.php:252
+#: includes/Admin/Screens.php:316
+#: includes/Render/AccountView.php:116
+msgid "Runs until"
+msgstr ""
+
+#: includes/Admin/Screens.php:234
+msgid "Leave the date empty to run for one period from today."
+msgstr ""
+
+#: includes/Admin/Screens.php:238
+#: includes/Admin/Screens.php:400
+#: includes/Render/AreaView.php:227
+msgid "All"
+msgstr ""
+
+#: includes/Admin/Screens.php:248
+msgid "Name or email"
+msgstr ""
+
+#: includes/Admin/Screens.php:249
+#: includes/Admin/Screens.php:413
+#: includes/Admin/Screens.php:513
+msgid "Filter"
+msgstr ""
+
+#: includes/Admin/Screens.php:252
+msgid "Member"
+msgstr ""
+
+#: includes/Admin/Screens.php:252
+#: includes/Admin/Screens.php:423
+#: includes/Frontend.php:202
+#: includes/Privacy.php:67
+#: includes/Privacy.php:96
+#: includes/Render/AccountView.php:65
+msgid "Status"
+msgstr ""
+
+#: includes/Admin/Screens.php:252
+msgid "Paid"
+msgstr ""
+
+#: includes/Admin/Screens.php:252
+msgid "Listed"
+msgstr ""
+
+#: includes/Admin/Screens.php:254
+msgid "No members match."
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Admin/Screens.php:262
+msgid "%s waiting"
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Admin/Screens.php:263
+#: includes/Admin/Screens.php:317
+#: includes/Render/AccountView.php:116
+msgid "No end date"
+msgstr ""
+
+#: includes/Admin/Screens.php:293
+#: includes/Tiers.php:111
+msgid "All members"
+msgstr ""
+
+#: includes/Admin/Screens.php:295
+msgid "That account no longer exists."
+msgstr ""
+
+#: includes/Admin/Screens.php:300
+msgid "Account"
+msgstr ""
+
+#: includes/Admin/Screens.php:300
+msgid "Activity"
+msgstr ""
+
+#: includes/Admin/Screens.php:305
+msgid "No membership yet. Record a payment to start one, or add them from the Members list."
+msgstr ""
+
+#: includes/Admin/Screens.php:307
+#: includes/Privacy.php:68
+#: includes/Render/AccountView.php:110
+msgid "Member since"
+msgstr ""
+
+#: includes/Admin/Screens.php:308
+#: includes/Render/AccountView.php:122
+msgid "Paid in total"
+msgstr ""
+
+#: includes/Admin/Screens.php:309
+msgid "Moves to"
+msgstr ""
+
+#: includes/Admin/Screens.php:309
+msgid "at the next payment"
+msgstr ""
+
+#: includes/Admin/Screens.php:318
+msgid "Shown on the sponsors page"
+msgstr ""
+
+#: includes/Admin/Screens.php:319
+msgid "Save plan"
+msgstr ""
+
+#: includes/Admin/Screens.php:322
+msgid "Standing"
+msgstr ""
+
+#: includes/Admin/Screens.php:323
+msgid "Make active"
+msgstr ""
+
+#: includes/Admin/Screens.php:323
+msgid "Lock until paid"
+msgstr ""
+
+#: includes/Admin/Screens.php:323
+msgid "End now (expired)"
+msgstr ""
+
+#: includes/Admin/Screens.php:323
+msgid "End now (cancelled)"
+msgstr ""
+
+#: includes/Admin/Screens.php:335
+msgid "Record a payment"
+msgstr ""
+
+#: includes/Admin/Screens.php:335
+msgid "For money that has already arrived. It is confirmed at once and extends the plan by one period."
+msgstr ""
+
+#: includes/Admin/Screens.php:339
+#: includes/Admin/Screens.php:391
+#: includes/Admin/Screens.php:423
+#: includes/Privacy.php:90
+#: includes/Render/AccountView.php:64
+#: includes/Render/DonateView.php:105
+msgid "Amount"
+msgstr ""
+
+#: includes/Admin/Screens.php:339
+msgid "Plan price"
+msgstr ""
+
+#: includes/Admin/Screens.php:340
+#: includes/Admin/Screens.php:393
+#: includes/Admin/Screens.php:423
+#: includes/Privacy.php:91
+#: includes/Render/AccountView.php:63
+msgid "Method"
+msgstr ""
+
+#: includes/Admin/Screens.php:341
+#: includes/Admin/Screens.php:394
+#: includes/Privacy.php:92
+msgid "Reference"
+msgstr ""
+
+#: includes/Admin/Screens.php:342
+#: includes/Admin/Screens.php:516
+msgid "Note"
+msgstr ""
+
+#: includes/Admin/Screens.php:343
+msgid "Record payment"
+msgstr ""
+
+#: includes/Admin/Screens.php:352
+msgid "Delete this membership and its payments"
+msgstr ""
+
+#: includes/Admin/Screens.php:379
+msgid "Record a gift"
+msgstr ""
+
+#: includes/Admin/Screens.php:380
+msgid "Download CSV"
+msgstr ""
+
+#: includes/Admin/Screens.php:382
+msgid "General donation"
+msgstr ""
+
+#: includes/Admin/Screens.php:388
+msgid "Record a gift that has arrived"
+msgstr ""
+
+#: includes/Admin/Screens.php:389
+#: includes/Admin/Screens.php:553
+#: includes/Admin/Screens.php:572
+#: includes/Admin/Screens.php:609
+#: includes/Privacy.php:94
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/Screens.php:390
+#: includes/Privacy.php:95
+#: includes/Render/DonateView.php:118
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/Screens.php:392
+#: includes/Admin/Screens.php:423
+#: includes/Render/AccountView.php:62
+msgid "For"
+msgstr ""
+
+#: includes/Admin/Screens.php:395
+msgid "Show on the sponsors page"
+msgstr ""
+
+#: includes/Admin/Screens.php:396
+msgid "Record gift"
+msgstr ""
+
+#: includes/Admin/Screens.php:400
+msgid "Waiting"
+msgstr ""
+
+#: includes/Admin/Screens.php:400
+#: includes/Log.php:104
+#: includes/Payments.php:465
+msgid "Confirmed"
+msgstr ""
+
+#: includes/Admin/Screens.php:400
+#: includes/Admin/Screens.php:443
+#: includes/Payments.php:466
+msgid "Not received"
+msgstr ""
+
+#: includes/Admin/Screens.php:400
+#: includes/Payments.php:468
+msgid "Withdrawn"
+msgstr ""
+
+#: includes/Admin/Screens.php:409
+#: includes/Admin/Screens.php:506
+#: assets/js/blocks.js:92
+msgid "Everything"
+msgstr ""
+
+#: includes/Admin/Screens.php:411
+msgid "Donations and sponsorships"
+msgstr ""
+
+#: includes/Admin/Screens.php:412
+msgid "Name, email or reference"
+msgstr ""
+
+#. translators: 1: count, 2: total
+#: includes/Admin/Screens.php:414
+msgid "%1$d payment · %2$s"
+msgid_plural "%1$d payments · %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/Screens.php:423
+#: includes/Privacy.php:78
+#: includes/Privacy.php:98
+#: includes/Render/AccountView.php:61
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/Screens.php:423
+msgid "From"
+msgstr ""
+
+#: includes/Admin/Screens.php:423
+msgid "Proof"
+msgstr ""
+
+#: includes/Admin/Screens.php:425
+msgid "No payments here."
+msgstr ""
+
+#: includes/Admin/Screens.php:432
+msgid "Approve withdrawal"
+msgstr ""
+
+#: includes/Admin/Screens.php:433
+#: includes/Admin/Screens.php:444
+msgid "Note to the payer"
+msgstr ""
+
+#: includes/Admin/Screens.php:433
+msgid "Note to the payer, such as how the money is returned"
+msgstr ""
+
+#: includes/Admin/Screens.php:433
+msgid "Approve and mark withdrawn"
+msgstr ""
+
+#: includes/Admin/Screens.php:435
+msgid "Decline"
+msgstr ""
+
+#: includes/Admin/Screens.php:436
+msgid "Reason for declining"
+msgstr ""
+
+#: includes/Admin/Screens.php:436
+msgid "Why it stays open (sent to the payer)"
+msgstr ""
+
+#: includes/Admin/Screens.php:436
+msgid "Decline and keep open"
+msgstr ""
+
+#: includes/Admin/Screens.php:444
+msgid "Note to the payer (optional)"
+msgstr ""
+
+#: includes/Admin/Screens.php:444
+msgid "Mark not received"
+msgstr ""
+
+#: includes/Admin/Screens.php:447
+msgid "Delete"
+msgstr ""
+
+#: includes/Admin/Screens.php:448
+msgid "Why it is being deleted"
+msgstr ""
+
+#: includes/Admin/Screens.php:448
+msgid "Why, for the activity log (for example: duplicate)"
+msgstr ""
+
+#: includes/Admin/Screens.php:448
+msgid "Delete for good"
+msgstr ""
+
+#: includes/Admin/Screens.php:455
+msgid "wants to be listed"
+msgstr ""
+
+#: includes/Admin/Screens.php:458
+msgid "Note:"
+msgstr ""
+
+#: includes/Admin/Screens.php:461
+msgid "Reason for withdrawing:"
+msgstr ""
+
+#. translators: %d: number of entries
+#: includes/Admin/Screens.php:483
+msgid "History (%d)"
+msgid_plural "History (%d)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/Screens.php:505
+msgid "Every step taken on payments and memberships, by whom and when. Entries cannot be edited or removed here, and stay after a payment is deleted."
+msgstr ""
+
+#. translators: %d: entries
+#: includes/Admin/Screens.php:514
+msgid "%d entry"
+msgid_plural "%d entries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/Screens.php:516
+msgid "When"
+msgstr ""
+
+#: includes/Admin/Screens.php:516
+msgid "What"
+msgstr ""
+
+#: includes/Admin/Screens.php:516
+msgid "Payment or member"
+msgstr ""
+
+#: includes/Admin/Screens.php:516
+msgid "By"
+msgstr ""
+
+#: includes/Admin/Screens.php:518
+msgid "Nothing has been logged yet."
+msgstr ""
+
+#: includes/Admin/Screens.php:545
+msgid "The tiers come from Sepo WordPress Bridge, so a plan here and a tier gate there mean the same thing. Rename, rank or add tiers in the Bridge; set prices and benefits here."
+msgstr ""
+
+#: includes/Admin/Screens.php:547
+msgid "Leave a price empty to not offer that period. A price of 0 makes the plan free: it opens at once with no payment."
+msgstr ""
+
+#: includes/Admin/Screens.php:552
+msgid "Add a plan"
+msgstr ""
+
+#: includes/Admin/Screens.php:554
+#: includes/Admin/Screens.php:610
+msgid "ID"
+msgstr ""
+
+#: includes/Admin/Screens.php:554
+msgid "made from the name"
+msgstr ""
+
+#: includes/Admin/Screens.php:555
+#: includes/Admin/Screens.php:573
+msgid "Rank"
+msgstr ""
+
+#: includes/Admin/Screens.php:559
+#: includes/Admin/Screens.php:581
+msgid "Benefits, one per line"
+msgstr ""
+
+#: includes/Admin/Screens.php:561
+msgid "Save plans"
+msgstr ""
+
+#. translators: %s: currency code
+#: includes/Admin/Screens.php:578
+msgid "Price in %s"
+msgstr ""
+
+#: includes/Admin/Screens.php:580
+msgid "Short description"
+msgstr ""
+
+#: includes/Admin/Screens.php:582
+msgid "Highlight as most popular"
+msgstr ""
+
+#: includes/Admin/Screens.php:583
+msgid "Hide from the pricing table (existing members keep it)"
+msgstr ""
+
+#: includes/Admin/Screens.php:584
+msgid "Remove this plan"
+msgstr ""
+
+#: includes/Admin/Screens.php:601
+msgid "Payment methods"
+msgstr ""
+
+#: includes/Admin/Screens.php:602
+msgid "People pay by these methods and then tell you. Every payment waits for you to confirm it before it opens anything. For a payment link, put the address of your payment page; {amount}, {currency} and {reference} in the address are filled in."
+msgstr ""
+
+#: includes/Admin/Screens.php:611
+msgid "Pay, then tell us (bank, cash, mobile money)"
+msgstr ""
+
+#: includes/Admin/Screens.php:611
+msgid "Payment link"
+msgstr ""
+
+#: includes/Admin/Screens.php:613
+msgid "Details shown to the payer, or the payment link address"
+msgstr ""
+
+#: includes/Admin/Screens.php:615
+msgid "Add a method"
+msgstr ""
+
+#: includes/Admin/Screens.php:622
+msgid "Save a method first."
+msgstr ""
+
+#: includes/Admin/Screens.php:626
+msgid "Methods for membership"
+msgstr ""
+
+#: includes/Admin/Screens.php:626
+#: includes/Admin/Screens.php:627
+msgid "Tick none to offer all of them."
+msgstr ""
+
+#: includes/Admin/Screens.php:627
+msgid "Methods for gifts"
+msgstr ""
+
+#: includes/Admin/Screens.php:628
+#: includes/Render/Parts.php:144
+msgid "Proof of payment"
+msgstr ""
+
+#: includes/Admin/Screens.php:628
+msgid "Do not ask"
+msgstr ""
+
+#: includes/Admin/Screens.php:628
+msgid "Optional"
+msgstr ""
+
+#: includes/Admin/Screens.php:628
+msgid "Required for pay-then-tell-us methods"
+msgstr ""
+
+#: includes/Admin/Screens.php:629
+msgid "Largest proof file"
+msgstr ""
+
+#: includes/Admin/Screens.php:630
+msgid "Currency"
+msgstr ""
+
+#: includes/Admin/Screens.php:630
+msgid "Three letters, such as ZMW or USD."
+msgstr ""
+
+#: includes/Admin/Screens.php:631
+msgid "Accent colour"
+msgstr ""
+
+#: includes/Admin/Screens.php:631
+msgid "Buttons and highlights. Leave empty for the default."
+msgstr ""
+
+#: includes/Admin/Screens.php:634
+msgid "Giving and sponsors"
+msgstr ""
+
+#: includes/Admin/Screens.php:635
+msgid "Gifts from visitors"
+msgstr ""
+
+#: includes/Admin/Screens.php:635
+msgid "Let people give without an account"
+msgstr ""
+
+#: includes/Admin/Screens.php:636
+msgid "Suggested amounts"
+msgstr ""
+
+#: includes/Admin/Screens.php:636
+msgid "Separated by commas."
+msgstr ""
+
+#: includes/Admin/Screens.php:637
+msgid "General giving goal"
+msgstr ""
+
+#: includes/Admin/Screens.php:637
+msgid "Shown as progress on the donate page. 0 hides it. Projects have their own goals."
+msgstr ""
+
+#: includes/Admin/Screens.php:638
+msgid "Sponsor levels"
+msgstr ""
+
+#: includes/Admin/Screens.php:638
+msgid "One per line: id | Name | lowest total given. People listed from their gifts are placed by what they gave in total; sponsors added by hand take the level you choose."
+msgstr ""
+
+#: includes/Admin/Screens.php:643
+msgid "— None —"
+msgstr ""
+
+#: includes/Admin/Screens.php:645
+msgid "Pages"
+msgstr ""
+
+#: includes/Admin/Screens.php:647
+msgid "Emails"
+msgstr ""
+
+#: includes/Admin/Screens.php:648
+msgid "New payments"
+msgstr ""
+
+#: includes/Admin/Screens.php:648
+msgid "Email me when a payment needs confirming"
+msgstr ""
+
+#: includes/Admin/Screens.php:649
+msgid "Send them to"
+msgstr ""
+
+#: includes/Admin/Screens.php:650
+msgid "Renewal reminder"
+msgstr ""
+
+#: includes/Admin/Screens.php:650
+msgid "days before a plan runs out"
+msgstr ""
+
+#: includes/Admin/Screens.php:650
+msgid "0 sends no reminder."
+msgstr ""
+
+#: includes/Admin/Screens.php:653
+msgid "Removing the plugin"
+msgstr ""
+
+#: includes/Admin/Screens.php:654
+msgid "Data"
+msgstr ""
+
+#: includes/Admin/Screens.php:654
+msgid "Delete members, payments, board posts, files and settings when the plugin is deleted"
+msgstr ""
+
+#: includes/Admin/Screens.php:656
+msgid "Save settings"
+msgstr ""
+
+#: includes/Board.php:110
+msgid "Give it a title."
+msgstr ""
+
+#: includes/Board.php:113
+msgid "Write your reply."
+msgstr ""
+
+#. translators: %d: character limit
+#: includes/Board.php:117
+msgid "Keep it under %d characters."
+msgstr ""
+
+#: includes/Board.php:130
+msgid "You have posted a lot in the last hour. Please wait a little before posting again."
+msgstr ""
+
+#: includes/Board.php:140
+msgid "Unknown kind of post."
+msgstr ""
+
+#: includes/Board.php:152
+#: includes/Board.php:176
+msgid "That could not be saved. Please try again."
+msgstr ""
+
+#: includes/Board.php:164
+msgid "That conversation is no longer here."
+msgstr ""
+
+#: includes/Board.php:192
+#: includes/Board.php:254
+#: includes/Rest.php:323
+#: includes/Rest.php:327
+#: includes/Rest.php:334
+msgid "That post is no longer here."
+msgstr ""
+
+#: includes/Board.php:195
+msgid "You can only change your own posts."
+msgstr ""
+
+#: includes/Board.php:210
+msgid "You can only remove your own posts."
+msgstr ""
+
+#: includes/Board.php:229
+msgid "That suggestion is no longer here."
+msgstr ""
+
+#: includes/Board.php:232
+msgid "Your own suggestion already counts as yours. Ask others to vote for it."
+msgstr ""
+
+#: includes/Board.php:235
+msgid "Voting is closed on this suggestion."
+msgstr ""
+
+#: includes/Board.php:283
+#: includes/Frontend.php:217
+#: includes/Render/AreaView.php:229
+msgid "Planned"
+msgstr ""
+
+#: includes/Board.php:284
+#: includes/Frontend.php:218
+#: includes/Render/AreaView.php:230
+msgid "Done"
+msgstr ""
+
+#: includes/Board.php:285
+#: includes/Frontend.php:219
+#: includes/Render/AreaView.php:231
+msgid "Not planned"
+msgstr ""
+
+#: includes/Board.php:286
+#: includes/Frontend.php:216
+#: includes/Render/AreaView.php:192
+#: includes/Render/AreaView.php:228
+msgid "Open"
+msgstr ""
+
+#: includes/Board.php:309
+msgid "Former member"
+msgstr ""
+
+#: includes/Embeds.php:28
+#: assets/js/blocks.js:40
+msgid "Membership plans"
+msgstr ""
+
+#: includes/Embeds.php:35
+#: includes/Render/AreaView.php:104
+#: includes/Render/AreaView.php:147
+#: assets/js/blocks.js:61
+msgid "My membership"
+msgstr ""
+
+#: includes/Embeds.php:41
+#: includes/Render/AccountView.php:156
+#: includes/Render/AreaView.php:53
+#: assets/js/blocks.js:67
+msgid "Members area"
+msgstr ""
+
+#: includes/Embeds.php:58
+#: includes/PostTypes.php:90
+#: includes/PostTypes.php:94
+#: includes/Render/SponsorsView.php:174
+#: assets/js/blocks.js:84
+msgid "Sponsors"
+msgstr ""
+
+#: includes/Embeds.php:68
+#: assets/js/blocks.js:99
+msgid "Donate"
+msgstr ""
+
+#: includes/Embeds.php:89
+msgid "General donations"
+msgstr ""
+
+#: includes/Embeds.php:93
+msgid "All collections"
+msgstr ""
+
+#. translators: %d: number of files
+#: includes/Files.php:119
+msgid "Attach at most %d files."
+msgstr ""
+
+#. translators: 1: file name, 2: size in MB
+#: includes/Files.php:126
+msgid "\"%1$s\" is larger than %2$d MB."
+msgstr ""
+
+#. translators: %s: file name
+#: includes/Files.php:130
+msgid "\"%s\" did not upload. Please try again."
+msgstr ""
+
+#. translators: 1: file name, 2: list of file types
+#: includes/Files.php:135
+msgid "\"%1$s\" is not an accepted file type. Use %2$s."
+msgstr ""
+
+#: includes/Files.php:149
+msgid "A file could not be saved. Please try again."
+msgstr ""
+
+#: includes/Files.php:204
+#: includes/Files.php:212
+msgid "The file is no longer available."
+msgstr ""
+
+#: includes/Frontend.php:132
+msgid "Could not reach the site. Check your connection and try again."
+msgstr ""
+
+#: includes/Frontend.php:133
+#: includes/Render/Parts.php:39
+msgid "Close"
+msgstr ""
+
+#: includes/Frontend.php:134
+msgid "Cancel"
+msgstr ""
+
+#: includes/Frontend.php:135
+msgid "Back"
+msgstr ""
+
+#: includes/Frontend.php:136
+msgid "Save"
+msgstr ""
+
+#: includes/Frontend.php:137
+msgid "Saving…"
+msgstr ""
+
+#: includes/Frontend.php:138
+msgid "Sending…"
+msgstr ""
+
+#: includes/Frontend.php:139
+msgid "Copied"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:141
+msgid "Join %s"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:143
+msgid "Renew %s"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:145
+msgid "Upgrade to %s"
+msgstr ""
+
+#: includes/Frontend.php:146
+msgid "You pay"
+msgstr ""
+
+#: includes/Frontend.php:147
+msgid "I have paid"
+msgstr ""
+
+#: includes/Frontend.php:148
+msgid "Send payment details"
+msgstr ""
+
+#: includes/Frontend.php:149
+#: includes/Render/PlansView.php:176
+msgid "Switch at renewal"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:151
+msgid "Move to %s?"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:153
+msgid "You keep your current plan until it runs out. %s starts with your next payment."
+msgstr ""
+
+#: includes/Frontend.php:154
+#: includes/Payments.php:83
+msgid "Attach proof of payment, such as a screenshot or a receipt."
+msgstr ""
+
+#. translators: 1: file name, 2: size in MB.
+#: includes/Frontend.php:156
+msgid "%1$s is larger than %2$d MB."
+msgstr ""
+
+#. translators: %d: number.
+#: includes/Frontend.php:158
+msgid "%d files chosen"
+msgstr ""
+
+#: includes/Frontend.php:159
+msgid "Cancel your plan?"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:161
+msgid "You keep your access until %s. After that the members area locks until you renew."
+msgstr ""
+
+#: includes/Frontend.php:162
+#: includes/Render/AccountView.php:161
+msgid "Cancel plan"
+msgstr ""
+
+#: includes/Frontend.php:163
+#: includes/Render/AccountView.php:159
+msgid "Keep my plan"
+msgstr ""
+
+#: includes/Frontend.php:164
+msgid "Ask to withdraw this payment"
+msgstr ""
+
+#: includes/Frontend.php:165
+msgid "Use this if you made the payment by mistake or need it back. We look at every request and email you our decision. If you have already sent the money and want to keep your plan, add proof instead."
+msgstr ""
+
+#: includes/Frontend.php:166
+msgid "Why do you want to withdraw it?"
+msgstr ""
+
+#: includes/Frontend.php:167
+msgid "Kept with the payment record and seen by the people who handle payments."
+msgstr ""
+
+#: includes/Frontend.php:168
+#: includes/Payments.php:268
+msgid "Tell us briefly why you want to withdraw this payment."
+msgstr ""
+
+#: includes/Frontend.php:169
+msgid "Send request"
+msgstr ""
+
+#. translators: %s: value.
+#. translators: %s: amount
+#: includes/Frontend.php:171
+#: includes/Render/DonateView.php:128
+msgid "Give %s"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:173
+msgid "Give %s monthly"
+msgstr ""
+
+#: includes/Frontend.php:175
+#: includes/Payments.php:96
+msgid "Enter your name and a valid email address."
+msgstr ""
+
+#: includes/Frontend.php:176
+msgid "Thank you"
+msgstr ""
+
+#: includes/Frontend.php:177
+msgid "Give again"
+msgstr ""
+
+#: includes/Frontend.php:178
+#: includes/Render/AreaView.php:238
+msgid "New discussion"
+msgstr ""
+
+#: includes/Frontend.php:179
+msgid "Suggest an idea"
+msgstr ""
+
+#: includes/Frontend.php:180
+#: includes/Privacy.php:76
+msgid "Title"
+msgstr ""
+
+#: includes/Frontend.php:181
+msgid "Details"
+msgstr ""
+
+#: includes/Frontend.php:182
+#: includes/Render/DonateView.php:122
+#: includes/Render/Parts.php:138
+#: includes/Render/Parts.php:145
+msgid "optional"
+msgstr ""
+
+#: includes/Frontend.php:183
+msgid "Post"
+msgstr ""
+
+#: includes/Frontend.php:184
+msgid "Reply"
+msgstr ""
+
+#: includes/Frontend.php:185
+msgid "Write a reply…"
+msgstr ""
+
+#: includes/Frontend.php:186
+msgid "Edit"
+msgstr ""
+
+#: includes/Frontend.php:187
+msgid "edited"
+msgstr ""
+
+#: includes/Frontend.php:189
+msgid "Remove this?"
+msgstr ""
+
+#: includes/Frontend.php:190
+msgid "The whole conversation, with its replies, will be removed."
+msgstr ""
+
+#: includes/Frontend.php:191
+msgid "This reply will be removed."
+msgstr ""
+
+#. translators: %d: number.
+#: includes/Frontend.php:193
+msgid "%d replies"
+msgstr ""
+
+#: includes/Frontend.php:194
+msgid "1 reply"
+msgstr ""
+
+#: includes/Frontend.php:195
+msgid "No replies yet"
+msgstr ""
+
+#: includes/Frontend.php:196
+msgid "votes"
+msgstr ""
+
+#: includes/Frontend.php:197
+msgid "Vote"
+msgstr ""
+
+#: includes/Frontend.php:198
+msgid "Voted"
+msgstr ""
+
+#: includes/Frontend.php:199
+msgid "Pinned"
+msgstr ""
+
+#: includes/Frontend.php:200
+msgid "Pin"
+msgstr ""
+
+#: includes/Frontend.php:201
+msgid "Unpin"
+msgstr ""
+
+#: includes/Frontend.php:203
+msgid "No discussions yet. Start the first one."
+msgstr ""
+
+#: includes/Frontend.php:204
+msgid "No suggestions yet. Share the first idea."
+msgstr ""
+
+#: includes/Frontend.php:205
+msgid "Nothing here with this filter."
+msgstr ""
+
+#: includes/Frontend.php:206
+#: includes/Render/AreaView.php:240
+msgid "Loading…"
+msgstr ""
+
+#: includes/Frontend.php:207
+msgid "Previous"
+msgstr ""
+
+#: includes/Frontend.php:208
+msgid "Next"
+msgstr ""
+
+#. translators: %1$d: number, %2$d: number.
+#: includes/Frontend.php:210
+msgid "Page %1$d of %2$d"
+msgstr ""
+
+#: includes/Frontend.php:211
+msgid "All discussions"
+msgstr ""
+
+#: includes/Frontend.php:212
+msgid "All suggestions"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Frontend.php:214
+msgid "by %s"
+msgstr ""
+
+#: includes/Frontend.php:215
+msgid "you"
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Frontend.php:275
+msgid "This part is for %s members and above."
+msgstr ""
+
+#: includes/Frontend.php:276
+msgid "This part is for members."
+msgstr ""
+
+#: includes/Frontend.php:278
+#: includes/Render/AccountView.php:26
+#: includes/Render/AreaView.php:95
+#: includes/Render/DonateView.php:85
+msgid "Sign in"
+msgstr ""
+
+#: includes/Frontend.php:281
+#: includes/Render/AccountView.php:40
+#: includes/Render/AreaView.php:96
+#: includes/Render/AreaView.php:109
+#: includes/Render/AreaView.php:113
+msgid "See plans"
+msgstr ""
+
+#: includes/Frontend.php:312
+msgid "This link has expired. Go back and open it again."
+msgstr ""
+
+#: includes/Frontend.php:316
+msgid "That file could not be found."
+msgstr ""
+
+#: includes/Frontend.php:319
+msgid "You cannot open this file."
+msgstr ""
+
+#: includes/Log.php:44
+msgid "membership"
+msgstr ""
+
+#: includes/Log.php:57
+msgid "Removed account"
+msgstr ""
+
+#: includes/Log.php:57
+msgid "Site"
+msgstr ""
+
+#: includes/Log.php:101
+msgid "Payment sent"
+msgstr ""
+
+#: includes/Log.php:103
+msgid "Proof added"
+msgstr ""
+
+#: includes/Log.php:105
+msgid "Marked not received"
+msgstr ""
+
+#: includes/Log.php:106
+msgid "Withdrawal asked for"
+msgstr ""
+
+#: includes/Log.php:107
+msgid "Withdrawal request taken back"
+msgstr ""
+
+#: includes/Log.php:108
+msgid "Withdrawal approved"
+msgstr ""
+
+#: includes/Log.php:109
+msgid "Withdrawal declined"
+msgstr ""
+
+#: includes/Log.php:110
+msgid "Payment deleted"
+msgstr ""
+
+#: includes/Log.php:111
+msgid "Plan changed by hand"
+msgstr ""
+
+#: includes/Log.php:112
+msgid "Standing changed by hand"
+msgstr ""
+
+#: includes/Log.php:113
+msgid "Member added by hand"
+msgstr ""
+
+#: includes/Log.php:114
+msgid "Membership deleted"
+msgstr ""
+
+#: includes/Log.php:115
+msgid "Plan cancelled by member"
+msgstr ""
+
+#: includes/Log.php:116
+msgid "Cancellation undone by member"
+msgstr ""
+
+#. translators: 1: plan name, 2: billing period
+#: includes/Mail.php:32
+msgid "%1$s membership (%2$s)"
+msgstr ""
+
+#. translators: %s: project name
+#: includes/Mail.php:36
+msgid "sponsorship of %s"
+msgstr ""
+
+#: includes/Mail.php:38
+msgid "donation"
+msgstr ""
+
+#: includes/Mail.php:51
+msgid "Payment details:"
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Mail.php:53
+msgid "We have your payment of %s"
+msgstr ""
+
+#. translators: 1: what it is for, 2: amount
+#: includes/Mail.php:55
+msgid ""
+"Thank you. We have recorded your %1$s of %2$s.\n"
+"\n"
+"We confirm payments by hand, usually within a working day. You will get another email when it is confirmed."
+msgstr ""
+
+#. translators: 1: amount, 2: payer name
+#: includes/Mail.php:62
+msgid "Payment to confirm: %1$s from %2$s"
+msgstr ""
+
+#. translators: 1: payer, 2: what for, 3: amount, 4: method, 5: reference, 6: link
+#: includes/Mail.php:64
+msgid ""
+"%1$s says they paid for a %2$s.\n"
+"\n"
+"Amount: %3$s\n"
+"Method: %4$s\n"
+"Reference: %5$s\n"
+"\n"
+"Confirm or reject it here:\n"
+"%6$s"
+msgstr ""
+
+#. translators: %s: payer name
+#: includes/Mail.php:81
+msgid "Proof of payment added by %s"
+msgstr ""
+
+#. translators: %s: date
+#: includes/Mail.php:89
+msgid "Your plan runs until %s."
+msgstr ""
+
+#. translators: %s: plan name
+#: includes/Mail.php:91
+msgid "Your %s membership is active"
+msgstr ""
+
+#. translators: 1: amount, 2: plan
+#: includes/Mail.php:93
+msgid "Your payment of %1$s is confirmed and your %2$s membership is active. Thank you for your support."
+msgstr ""
+
+#: includes/Mail.php:99
+msgid "Thank you for your gift"
+msgstr ""
+
+#. translators: 1: amount, 2: what for
+#: includes/Mail.php:101
+msgid "Your %2$s of %1$s has arrived. Thank you — it makes a real difference."
+msgstr ""
+
+#: includes/Mail.php:104
+msgid "You are listed on our sponsors page:"
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Mail.php:111
+msgid "We could not find your payment of %s"
+msgstr ""
+
+#. translators: 1: amount, 2: what for
+#: includes/Mail.php:113
+msgid "We could not match your payment of %1$s for a %2$s to money received."
+msgstr ""
+
+#: includes/Mail.php:116
+msgid "If you did pay, reply to this email with your receipt and we will sort it out."
+msgstr ""
+
+#. translators: %s: plan name
+#: includes/Mail.php:128
+msgid "Your %s membership ends soon"
+msgstr ""
+
+#. translators: 1: plan, 2: date
+#: includes/Mail.php:130
+msgid "Your %1$s membership runs until %2$s. Renew before then to keep your access without a break."
+msgstr ""
+
+#. translators: %s: plan name
+#: includes/Mail.php:144
+msgid "Your %s membership has ended"
+msgstr ""
+
+#. translators: %s: plan name
+#: includes/Mail.php:144
+msgid "Your membership has run out, so members-only content is locked for now. Renew any time to pick up where you left off."
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Mail.php:151
+msgid "We have your request to withdraw %s"
+msgstr ""
+
+#. translators: 1: what for, 2: amount
+#: includes/Mail.php:153
+msgid "You asked to withdraw your %1$s of %2$s. We will look at it and email you when it has been dealt with."
+msgstr ""
+
+#: includes/Mail.php:156
+#: includes/Render/AccountView.php:198
+msgid "Your reason:"
+msgstr ""
+
+#. translators: 1: payer, 2: amount
+#: includes/Mail.php:159
+msgid "Withdrawal request: %1$s, %2$s"
+msgstr ""
+
+#. translators: 1: payer, 2: what for, 3: amount, 4: reason, 5: link
+#: includes/Mail.php:161
+msgid ""
+"%1$s asked to withdraw a %2$s of %3$s.\n"
+"\n"
+"Reason:\n"
+"%4$s\n"
+"\n"
+"Approve or decline it here:\n"
+"%5$s"
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Mail.php:177
+msgid "Your payment of %s is withdrawn"
+msgstr ""
+
+#. translators: 1: what for, 2: amount
+#: includes/Mail.php:179
+msgid "We have withdrawn your %1$s of %2$s as you asked. If money did leave your account, reply to this email and we will arrange to return it."
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Mail.php:186
+msgid "Your payment of %s is still open"
+msgstr ""
+
+#. translators: 1: what for, 2: amount
+#: includes/Mail.php:188
+msgid "We looked at your request to withdraw your %1$s of %2$s and have kept the payment open."
+msgstr ""
+
+#. translators: %s: title of the discussion
+#: includes/Mail.php:209
+msgid "New reply: %s"
+msgstr ""
+
+#. translators: 1: name of who replied, 2: title
+#: includes/Mail.php:213
+msgid "%1$s replied to \"%2$s\":"
+msgstr ""
+
+#: includes/Mail.php:214
+msgid "A member"
+msgstr ""
+
+#: includes/Mail.php:222
+msgid "Your monthly gift"
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Mail.php:224
+msgid "A month ago you chose to give %s each month. Thank you. When you are ready to make this month's gift, you can do it here:"
+msgstr ""
+
+#: includes/Members.php:149
+#: includes/Rest.php:105
+msgid "That plan is not available."
+msgstr ""
+
+#: includes/Members.php:294
+msgid "Unknown plan."
+msgstr ""
+
+#: includes/Members.php:315
+msgid "That member has no membership."
+msgstr ""
+
+#: includes/Members.php:344
+msgid "Unknown status."
+msgstr ""
+
+#: includes/Payments.php:71
+msgid "Choose how you paid."
+msgstr ""
+
+#: includes/Payments.php:78
+msgid "That amount is too large."
+msgstr ""
+
+#: includes/Payments.php:120
+msgid "Your payment could not be recorded. Please try again."
+msgstr ""
+
+#: includes/Payments.php:183
+#: includes/Payments.php:208
+#: includes/Payments.php:261
+#: includes/Payments.php:325
+#: includes/Rest.php:205
+#: includes/Rest.php:228
+#: includes/Rest.php:241
+msgid "That payment could not be found."
+msgstr ""
+
+#: includes/Payments.php:186
+msgid "That payment is already confirmed."
+msgstr ""
+
+#: includes/Payments.php:264
+msgid "Only a payment that is still waiting can be withdrawn."
+msgstr ""
+
+#: includes/Payments.php:284
+#: includes/Payments.php:298
+msgid "There is no withdrawal request on that payment."
+msgstr ""
+
+#. translators: %d: number of files
+#: includes/Payments.php:332
+msgid "%d file"
+msgid_plural "%d files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Payments.php:458
+msgid "Donation"
+msgstr ""
+
+#: includes/Payments.php:467
+msgid "Withdrawal requested"
+msgstr ""
+
+#: includes/Payments.php:469
+msgid "Awaiting confirmation"
+msgstr ""
+
+#: includes/PostTypes.php:43
+msgid "Link"
+msgstr ""
+
+#: includes/PostTypes.php:43
+#: includes/Render/AreaView.php:192
+msgid "Download"
+msgstr ""
+
+#: includes/PostTypes.php:49
+msgid "Raised"
+msgstr ""
+
+#: includes/PostTypes.php:74
+msgid "Sponsorship projects"
+msgstr ""
+
+#: includes/PostTypes.php:75
+msgid "Project"
+msgstr ""
+
+#: includes/PostTypes.php:76
+#: includes/PostTypes.php:79
+msgid "Projects"
+msgstr ""
+
+#: includes/PostTypes.php:78
+msgid "Edit project"
+msgstr ""
+
+#: includes/PostTypes.php:91
+msgid "Sponsor"
+msgstr ""
+
+#: includes/PostTypes.php:92
+msgid "Add a sponsor"
+msgstr ""
+
+#: includes/PostTypes.php:93
+msgid "Edit sponsor"
+msgstr ""
+
+#: includes/PostTypes.php:95
+msgid "Logo"
+msgstr ""
+
+#: includes/PostTypes.php:96
+msgid "Set logo"
+msgstr ""
+
+#: includes/PostTypes.php:105
+msgid "Member resources"
+msgstr ""
+
+#: includes/PostTypes.php:107
+msgid "Add a resource"
+msgstr ""
+
+#: includes/PostTypes.php:108
+msgid "Edit resource"
+msgstr ""
+
+#: includes/PostTypes.php:109
+msgid "Resources"
+msgstr ""
+
+#: includes/PostTypes.php:118
+msgid "Collections"
+msgstr ""
+
+#: includes/PostTypes.php:119
+msgid "Collection"
+msgstr ""
+
+#: includes/Privacy.php:40
+msgid "When you join, renew or give, we store your name, email address, the plan or project, the amount, the payment method, any reference and message you enter, and any proof of payment you upload. Proofs are kept in a private folder and seen only by the people who confirm payments."
+msgstr ""
+
+#: includes/Privacy.php:42
+msgid "If you choose to be listed, your name (and, for members, your plan) is shown on the sponsors page. You can change this at any time on your membership page."
+msgstr ""
+
+#: includes/Privacy.php:44
+msgid "Posts, replies and votes in the members area are stored with your account and shown to other members."
+msgstr ""
+
+#: includes/Privacy.php:66
+#: includes/Render/PlansView.php:76
+msgid "Billing period"
+msgstr ""
+
+#: includes/Privacy.php:69
+msgid "Expires"
+msgstr ""
+
+#: includes/Privacy.php:70
+msgid "Listed on sponsors page"
+msgstr ""
+
+#: includes/Privacy.php:70
+msgid "Yes"
+msgstr ""
+
+#: includes/Privacy.php:70
+msgid "No"
+msgstr ""
+
+#: includes/Privacy.php:74
+msgid "Members area posts"
+msgstr ""
+
+#: includes/Privacy.php:77
+msgid "Text"
+msgstr ""
+
+#: includes/Privacy.php:93
+#: includes/Render/DonateView.php:122
+msgid "Message"
+msgstr ""
+
+#: includes/Privacy.php:97
+msgid "Reason for withdrawing"
+msgstr ""
+
+#: includes/Privacy.php:99
+msgid "History"
+msgstr ""
+
+#: includes/Privacy.php:136
+msgid "Confirmed payments are kept, without any name or contact details, as accounting records."
+msgstr ""
+
+#: includes/Render/AccountView.php:24
+msgid "Sign in to see your membership"
+msgstr ""
+
+#: includes/Render/AccountView.php:25
+msgid "Your plan, payments and receipts are here once you sign in."
+msgstr ""
+
+#: includes/Render/AccountView.php:27
+#: includes/Render/AreaView.php:96
+msgid "Create an account"
+msgstr ""
+
+#: includes/Render/AccountView.php:38
+msgid "Not a member yet"
+msgstr ""
+
+#: includes/Render/AccountView.php:39
+msgid "Choose a plan to support us and open the members area."
+msgstr ""
+
+#: includes/Render/AccountView.php:56
+msgid "Payment history"
+msgstr ""
+
+#: includes/Render/AccountView.php:58
+msgid "No confirmed payments yet."
+msgstr ""
+
+#: includes/Render/AccountView.php:79
+msgid "Your choices"
+msgstr ""
+
+#: includes/Render/AccountView.php:81
+msgid "Show me on the sponsors page"
+msgstr ""
+
+#: includes/Render/AccountView.php:81
+msgid "Your display name and plan, while your plan is active."
+msgstr ""
+
+#: includes/Render/AccountView.php:83
+msgid "Email me when someone replies to my posts"
+msgstr ""
+
+#: includes/Render/AccountView.php:83
+msgid "For discussions and suggestions in the members area."
+msgstr ""
+
+#: includes/Render/AccountView.php:96
+msgid "Cancelled — access until it ends"
+msgstr ""
+
+#: includes/Render/AccountView.php:98
+msgid "Waiting for payment confirmation"
+msgstr ""
+
+#: includes/Render/AccountView.php:100
+#: includes/Render/AccountView.php:119
+msgid "Ended"
+msgstr ""
+
+#: includes/Render/AccountView.php:114
+msgid "Access ends"
+msgstr ""
+
+#: includes/Render/AccountView.php:114
+msgid "Renew by"
+msgstr ""
+
+#. translators: 1: new plan, 2: date
+#: includes/Render/AccountView.php:135
+msgid "You are moving to %1$s. It starts with your next payment, after %2$s."
+msgstr ""
+
+#: includes/Render/AccountView.php:137
+msgid "your current plan"
+msgstr ""
+
+#: includes/Render/AccountView.php:146
+msgid "Renew now"
+msgstr ""
+
+#: includes/Render/AccountView.php:149
+msgid "Renew my plan"
+msgstr ""
+
+#: includes/Render/AccountView.php:152
+msgid "Change plan"
+msgstr ""
+
+#: includes/Render/AccountView.php:152
+msgid "See all plans"
+msgstr ""
+
+#. translators: 1: payment method, 2: time ago
+#: includes/Render/AccountView.php:176
+msgid "%1$s · sent %2$s"
+msgstr ""
+
+#: includes/Render/AccountView.php:179
+msgid "Ref."
+msgstr ""
+
+#. translators: %d: number of files
+#: includes/Render/AccountView.php:182
+msgid "%d proof file attached"
+msgid_plural "%d proof files attached"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Render/AccountView.php:187
+msgid "Add proof"
+msgstr ""
+
+#: includes/Render/AccountView.php:191
+msgid "Keep this payment"
+msgstr ""
+
+#: includes/Render/AccountView.php:193
+msgid "Ask to withdraw"
+msgstr ""
+
+#: includes/Render/AccountView.php:197
+msgid "Withdrawal requested, waiting for review"
+msgstr ""
+
+#: includes/Render/AccountView.php:200
+msgid "Note from us:"
+msgstr ""
+
+#: includes/Render/AccountView.php:213
+msgid "What has happened so far"
+msgstr ""
+
+#. translators: 1: plan, 2: period
+#: includes/Render/AccountView.php:226
+msgid "%1$s membership, %2$s"
+msgstr ""
+
+#. translators: %s: project
+#: includes/Render/AccountView.php:233
+msgid "Sponsoring %s"
+msgstr ""
+
+#: includes/Render/AccountView.php:235
+msgid "Monthly gift"
+msgstr ""
+
+#: includes/Render/AccountView.php:235
+msgid "Gift"
+msgstr ""
+
+#: includes/Render/AreaView.php:44
+msgid "Downloads"
+msgstr ""
+
+#: includes/Render/AreaView.php:45
+msgid "Links"
+msgstr ""
+
+#: includes/Render/AreaView.php:46
+#: assets/js/blocks.js:75
+msgid "Discussions"
+msgstr ""
+
+#: includes/Render/AreaView.php:47
+msgid "Suggestions"
+msgstr ""
+
+#: includes/Render/AreaView.php:93
+#: includes/Render/AreaView.php:111
+msgid "This area is for members"
+msgstr ""
+
+#: includes/Render/AreaView.php:94
+msgid "Sign in if you are a member. If not, choose a plan to join."
+msgstr ""
+
+#: includes/Render/AreaView.php:102
+msgid "Your payment is being checked"
+msgstr ""
+
+#: includes/Render/AreaView.php:103
+msgid "This area opens as soon as we confirm your payment. We will email you when it does. Adding proof of payment helps us confirm it sooner."
+msgstr ""
+
+#: includes/Render/AreaView.php:106
+msgid "Your membership has ended"
+msgstr ""
+
+#: includes/Render/AreaView.php:107
+msgid "Renew your plan to open the members area again. Everything is where you left it."
+msgstr ""
+
+#: includes/Render/AreaView.php:108
+#: includes/Render/PlansView.php:169
+msgid "Renew"
+msgstr ""
+
+#: includes/Render/AreaView.php:112
+msgid "Choose a plan to join. The area opens as soon as your payment is confirmed."
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Render/AreaView.php:116
+msgid "This area is for %s members and above"
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Render/AreaView.php:117
+msgid "Your plan is %s. Upgrade to open this area; the upgrade starts as soon as it is paid."
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Render/AreaView.php:118
+#: includes/Render/AreaView.php:215
+#: includes/Render/PlansView.php:176
+msgid "Upgrade"
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Render/AreaView.php:131
+msgid "%s member"
+msgstr ""
+
+#. translators: %s: date
+#: includes/Render/AreaView.php:135
+msgid "access ends %s"
+msgstr ""
+
+#. translators: %s: date
+#: includes/Render/AreaView.php:137
+msgid "renews by %s"
+msgstr ""
+
+#: includes/Render/AreaView.php:140
+msgid "You manage the membership, so you see everything."
+msgstr ""
+
+#. translators: %s: first name
+#: includes/Render/AreaView.php:143
+msgid "Welcome, %s"
+msgstr ""
+
+#: includes/Render/AreaView.php:155
+msgid "No links have been shared yet."
+msgstr ""
+
+#: includes/Render/AreaView.php:155
+msgid "No downloads yet. New ones will appear here."
+msgstr ""
+
+#: includes/Render/AreaView.php:195
+msgid "Upgrade to open"
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Render/AreaView.php:210
+msgid "Suggestions and voting are for %s members and above."
+msgstr ""
+
+#. translators: %s: plan
+#: includes/Render/AreaView.php:212
+msgid "Discussions are for %s members and above."
+msgstr ""
+
+#: includes/Render/AreaView.php:221
+msgid "Ideas for what we should do next. Vote for the ones you want most."
+msgstr ""
+
+#: includes/Render/AreaView.php:222
+msgid "Ask questions and talk with other members."
+msgstr ""
+
+#: includes/Render/AreaView.php:225
+msgid "Show"
+msgstr ""
+
+#: includes/Render/AreaView.php:233
+msgid "Sort"
+msgstr ""
+
+#: includes/Render/AreaView.php:235
+msgid "Most votes"
+msgstr ""
+
+#: includes/Render/AreaView.php:236
+msgid "Latest activity"
+msgstr ""
+
+#: includes/Render/AreaView.php:237
+msgid "Newest"
+msgstr ""
+
+#: includes/Render/AreaView.php:238
+msgid "Suggest"
+msgstr ""
+
+#: includes/Render/DonateView.php:40
+msgid "This project has closed and is no longer taking gifts. Thank you to everyone who gave."
+msgstr ""
+
+#. translators: %s: goal amount
+#: includes/Render/DonateView.php:54
+msgid "raised of %s"
+msgstr ""
+
+#: includes/Render/DonateView.php:56
+msgid "raised so far"
+msgstr ""
+
+#: includes/Render/DonateView.php:60
+msgid "Progress towards the goal"
+msgstr ""
+
+#. translators: %d: percent
+#: includes/Render/DonateView.php:65
+msgid "%d%% of the goal"
+msgstr ""
+
+#. translators: %s: number of people
+#. translators: %s: number
+#: includes/Render/DonateView.php:68
+#: includes/Render/SponsorsView.php:143
+msgid "%s supporter"
+msgid_plural "%s supporters"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: days
+#: includes/Render/DonateView.php:72
+msgid "%d day left"
+msgid_plural "%d days left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Render/DonateView.php:84
+msgid "Please sign in to give. It lets us send your receipt and thank you properly."
+msgstr ""
+
+#: includes/Render/DonateView.php:101
+msgid "How often"
+msgstr ""
+
+#: includes/Render/DonateView.php:102
+msgid "Give once"
+msgstr ""
+
+#: includes/Render/DonateView.php:103
+#: includes/Render/PlansView.php:100
+#: includes/Tiers.php:126
+#: assets/js/blocks.js:51
+msgid "Monthly"
+msgstr ""
+
+#: includes/Render/DonateView.php:109
+msgid "Other"
+msgstr ""
+
+#: includes/Render/DonateView.php:110
+msgid "Your amount"
+msgstr ""
+
+#: includes/Render/DonateView.php:113
+msgid "We will email you a reminder each month. Nothing is taken automatically."
+msgstr ""
+
+#: includes/Render/DonateView.php:117
+msgid "Your name"
+msgstr ""
+
+#: includes/Render/DonateView.php:118
+msgid "For your receipt. Never shown."
+msgstr ""
+
+#: includes/Render/DonateView.php:124
+#: includes/Render/Parts.php:152
+msgid "Show my name on the sponsors page"
+msgstr ""
+
+#: includes/Render/DonateView.php:125
+msgid "Leave this empty"
+msgstr ""
+
+#. translators: %s: amount
+#: includes/Render/DonateView.php:129
+msgid "We confirm every gift by hand and email you when it has arrived."
+msgstr ""
+
+#. translators: %s: a span of time such as "3 days"
+#: includes/Render/Parts.php:69
+msgid "in %s"
+msgstr ""
+
+#. translators: %s: a span of time such as "3 days"
+#: includes/Render/Parts.php:69
+msgid "%s ago"
+msgstr ""
+
+#: includes/Render/Parts.php:109
+msgid "Payments are not set up yet. Please check back soon."
+msgstr ""
+
+#: includes/Render/Parts.php:112
+msgid "How are you paying?"
+msgstr ""
+
+#: includes/Render/Parts.php:120
+msgid "Pay online"
+msgstr ""
+
+#: includes/Render/Parts.php:120
+msgid "Pay, then tell us"
+msgstr ""
+
+#: includes/Render/Parts.php:129
+msgid "Pay on the payment page, then come back here and press the button below so we can match your payment."
+msgstr ""
+
+#: includes/Render/Parts.php:130
+msgid "Open the payment page"
+msgstr ""
+
+#: includes/Render/Parts.php:133
+msgid "Copy"
+msgstr ""
+
+#: includes/Render/Parts.php:138
+msgid "Payment reference"
+msgstr ""
+
+#: includes/Render/Parts.php:140
+msgid "The transaction ID or the reference you used, so we can find your payment quickly."
+msgstr ""
+
+#: includes/Render/Parts.php:146
+msgid "Choose a screenshot or receipt"
+msgstr ""
+
+#. translators: 1: file types, 2: size in MB
+#: includes/Render/Parts.php:149
+msgid "%1$s. Up to %2$d MB each."
+msgstr ""
+
+#: includes/Render/PlansView.php:26
+msgid "Membership plans are not open yet. Please check back soon."
+msgstr ""
+
+#. translators: 1: amount, 2: plan
+#: includes/Render/PlansView.php:64
+msgid "Your payment of %1$s for %2$s is waiting for confirmation. Your plan opens as soon as it is confirmed."
+msgstr ""
+
+#: includes/Render/PlansView.php:67
+msgid "View or add proof"
+msgstr ""
+
+#. translators: %d: percent
+#: includes/Render/PlansView.php:80
+msgid "Save %d%%"
+msgstr ""
+
+#: includes/Render/PlansView.php:91
+msgid "Pay by the methods shown when you join. Your plan opens as soon as we confirm your payment. You can cancel at any time and keep your access until the end of the time you paid for."
+msgstr ""
+
+#: includes/Render/PlansView.php:101
+#: assets/js/blocks.js:52
+msgid "Quarterly"
+msgstr ""
+
+#: includes/Render/PlansView.php:102
+#: includes/Tiers.php:128
+#: assets/js/blocks.js:53
+msgid "Yearly"
+msgstr ""
+
+#: includes/Render/PlansView.php:103
+#: assets/js/blocks.js:54
+msgid "One-time"
+msgstr ""
+
+#: includes/Render/PlansView.php:124
+msgid "Free"
+msgstr ""
+
+#: includes/Render/PlansView.php:132
+msgid "Your plan"
+msgstr ""
+
+#: includes/Render/PlansView.php:134
+msgid "Most popular"
+msgstr ""
+
+#: includes/Render/PlansView.php:142
+msgid "Not offered for this period"
+msgstr ""
+
+#: includes/Render/PlansView.php:162
+msgid "Sign in to join"
+msgstr ""
+
+#: includes/Render/PlansView.php:166
+msgid "Join"
+msgstr ""
+
+#: includes/Render/PlansView.php:172
+msgid "Starts at your next renewal"
+msgstr ""
+
+#: includes/Render/PlansView.php:188
+msgid "Show me on the sponsors page as a supporting member"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:49
+msgid "given by our supporters"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:50
+msgid "sponsor"
+msgid_plural "sponsors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Render/SponsorsView.php:54
+msgid "project open now"
+msgid_plural "projects open now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Render/SponsorsView.php:64
+msgid "What you can sponsor"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:72
+msgid "Sponsors of this project"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:72
+msgid "Our sponsors"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:75
+msgid "Be the first to sponsor."
+msgstr ""
+
+#: includes/Render/SponsorsView.php:76
+msgid "Give now"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:99
+msgid "Members who support us"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:114
+msgid "Want to see your name here?"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:114
+msgid "Sponsor a project, give a gift, or become a member and choose to be listed."
+msgstr ""
+
+#: includes/Render/SponsorsView.php:115
+msgid "Give"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:116
+msgid "Become a member"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:130
+msgid "Closed"
+msgstr ""
+
+#: includes/Render/SponsorsView.php:132
+msgid "Goal reached"
+msgstr ""
+
+#. translators: %s: project
+#: includes/Render/SponsorsView.php:139
+msgid "Progress for %s"
+msgstr ""
+
+#. translators: %s: goal
+#: includes/Render/SponsorsView.php:142
+msgid "of %s"
+msgstr ""
+
+#. translators: %s: goal
+#: includes/Render/SponsorsView.php:142
+msgid "raised"
+msgstr ""
+
+#. translators: %s: number
+#: includes/Render/SponsorsView.php:144
+msgid "See the project"
+msgstr ""
+
+#. translators: %s: number
+#: includes/Render/SponsorsView.php:144
+msgid "Sponsor this"
+msgstr ""
+
+#: includes/Resources.php:237
+msgid "Members only"
+msgstr ""
+
+#: includes/Resources.php:240
+msgid "That resource is not available."
+msgstr ""
+
+#: includes/Resources.php:244
+msgid "This is for members with an active plan that includes it. If you have just paid, it opens as soon as your payment is confirmed."
+msgstr ""
+
+#: includes/Resources.php:249
+msgid "That file is no longer available."
+msgstr ""
+
+#: includes/Resources.php:254
+msgid "That link is not valid."
+msgstr ""
+
+#: includes/Rest.php:71
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/Rest.php:118
+msgid "You already have a membership payment waiting for confirmation. Add proof to it, or withdraw it, from your membership page."
+msgstr ""
+
+#: includes/Rest.php:141
+msgid "Thank you. Your payment is recorded and waiting for confirmation. Your plan opens as soon as it is confirmed, and we will email you."
+msgstr ""
+
+#: includes/Rest.php:142
+msgid "Your plan will change when your current one runs out. Until then you keep everything you have now."
+msgstr ""
+
+#: includes/Rest.php:143
+msgid "That is already your plan."
+msgstr ""
+
+#: includes/Rest.php:144
+msgid "Welcome. Your membership is active."
+msgstr ""
+
+#: includes/Rest.php:162
+msgid "There is no active plan to cancel."
+msgstr ""
+
+#: includes/Rest.php:166
+msgid "Your plan is cancelled. You keep your access until the end of the time you paid for."
+msgstr ""
+
+#: includes/Rest.php:173
+msgid "There is nothing to resume."
+msgstr ""
+
+#: includes/Rest.php:177
+msgid "Your plan is back on."
+msgstr ""
+
+#: includes/Rest.php:184
+msgid "Join first, then you can choose to be listed."
+msgstr ""
+
+#: includes/Rest.php:188
+msgid "You will be shown on the sponsors page while your plan is active."
+msgstr ""
+
+#: includes/Rest.php:188
+msgid "You are no longer shown on the sponsors page."
+msgstr ""
+
+#: includes/Rest.php:196
+msgid "Saved."
+msgstr ""
+
+#: includes/Rest.php:208
+msgid "That payment has already been dealt with."
+msgstr ""
+
+#: includes/Rest.php:212
+msgid "Choose a file to attach."
+msgstr ""
+
+#: includes/Rest.php:215
+msgid "Proof attached. Thank you."
+msgstr ""
+
+#: includes/Rest.php:231
+msgid "Your request is sent. We will email you when it has been dealt with."
+msgstr ""
+
+#: includes/Rest.php:244
+msgid "Your payment is waiting for confirmation again."
+msgstr ""
+
+#: includes/Rest.php:255
+msgid "Please sign in to give."
+msgstr ""
+
+#: includes/Rest.php:259
+msgid "Thank you."
+msgstr ""
+
+#: includes/Rest.php:265
+msgid "You have sent several gifts in a short time. Please wait an hour and try again."
+msgstr ""
+
+#: includes/Rest.php:271
+msgid "That project is not taking gifts."
+msgstr ""
+
+#: includes/Rest.php:274
+msgid "This project has closed. Thank you for thinking of it."
+msgstr ""
+
+#: includes/Rest.php:291
+msgid "Thank you. Your gift is recorded and will be counted as soon as we confirm it arrived. We have emailed you a copy."
+msgstr ""
+
+#: includes/Rest.php:308
+msgid "That members area could not be found."
+msgstr ""
+
+#: includes/Rest.php:313
+msgid "This part of the members area is not included in your plan."
+msgstr ""
+
+#: includes/Rest.php:427
+msgid "Removed."
+msgstr ""
+
+#: includes/Settings.php:195
+msgid "Supporter"
+msgstr ""
+
+#: includes/Tiers.php:127
+msgid "Every 3 months"
+msgstr ""
+
+#: includes/Tiers.php:129
+msgid "One payment, no renewal"
+msgstr ""
+
+#: includes/Tiers.php:138
+msgid "/ month"
+msgstr ""
+
+#: includes/Tiers.php:139
+msgid "/ 3 months"
+msgstr ""
+
+#: includes/Tiers.php:140
+msgid "/ year"
+msgstr ""
+
+#: includes/Tiers.php:141
+msgid "once"
+msgstr ""
+
+#: sepo-membership.php:25
+msgid "Sepo Membership needs PHP 8.1 or newer. The plugin is installed but not running."
+msgstr ""
+
+#: assets/js/blocks.js:41
+msgid "The pricing table with a billing-period switch and the join dialog."
+msgstr ""
+
+#: assets/js/blocks.js:46
+#: assets/js/blocks.js:90
+#: assets/js/blocks.js:105
+msgid "Heading"
+msgstr ""
+
+#: assets/js/blocks.js:47
+#: assets/js/blocks.js:91
+#: assets/js/blocks.js:106
+msgid "Introduction"
+msgstr ""
+
+#: assets/js/blocks.js:48
+msgid "Only these plans"
+msgstr ""
+
+#: assets/js/blocks.js:48
+msgid "Plan ids separated by commas. Leave empty for all."
+msgstr ""
+
+#: assets/js/blocks.js:49
+msgid "Period shown first"
+msgstr ""
+
+#: assets/js/blocks.js:50
+msgid "Monthly when offered"
+msgstr ""
+
+#: assets/js/blocks.js:62
+msgid "The member's plan, payments waiting, history and choices."
+msgstr ""
+
+#: assets/js/blocks.js:68
+msgid "Downloads, links, discussions and suggestions for members, by plan."
+msgstr ""
+
+#: assets/js/blocks.js:73
+msgid "Welcome heading"
+msgstr ""
+
+#: assets/js/blocks.js:74
+msgid "Who can enter"
+msgstr ""
+
+#: assets/js/blocks.js:74
+msgid "Members with an active plan at this level or above."
+msgstr ""
+
+#: assets/js/blocks.js:76
+msgid "Suggestions and voting"
+msgstr ""
+
+#: assets/js/blocks.js:77
+msgid "Resources from"
+msgstr ""
+
+#: assets/js/blocks.js:78
+#: assets/js/blocks.js:93
+msgid "Sections"
+msgstr ""
+
+#: assets/js/blocks.js:78
+msgid "Any of downloads, links, discussions, suggestions, separated by commas. Leave empty for all."
+msgstr ""
+
+#: assets/js/blocks.js:85
+msgid "Projects to sponsor, sponsors by level, and members who chose to be listed."
+msgstr ""
+
+#: assets/js/blocks.js:92
+msgid "Sponsors of"
+msgstr ""
+
+#: assets/js/blocks.js:93
+msgid "Any of stats, projects, sponsors, members, separated by commas. Leave empty for all."
+msgstr ""
+
+#: assets/js/blocks.js:100
+msgid "A giving form with amount choices, for general donations or one project."
+msgstr ""
+
+#: assets/js/blocks.js:107
+msgid "Gifts go to"
+msgstr ""
+
+#: assets/js/blocks.js:108
+msgid "Amounts"
+msgstr ""
+
+#: assets/js/blocks.js:108
+msgid "Separated by commas. Leave empty to use the setting."
+msgstr ""
+
+#: assets/js/blocks.js:109
+msgid "Show progress towards the goal"
+msgstr ""
