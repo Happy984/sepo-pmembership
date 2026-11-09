@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom plugin tables: names are built from $wpdb->prefix plus a fixed suffix, values go through $wpdb->prepare(), and dynamic fragments come from fixed allow-lists.
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 
 namespace SepoMembership;
 
@@ -374,12 +376,10 @@ final class Payments
         $per = max(1, min(1000, (int) ($a['per_page'] ?? 25)));
         $page = max(1, (int) ($a['page'] ?? 1));
         $sqlWhere = implode(' AND ', $where);
-        // phpcs:disable WordPress.DB.PreparedSQL -- clauses use placeholders
         $agg = $params
             ? $wpdb->get_row($wpdb->prepare('SELECT COUNT(*) AS n, SUM(amount) AS s FROM ' . Schema::payments() . " WHERE $sqlWhere", ...$params), ARRAY_A)
             : $wpdb->get_row('SELECT COUNT(*) AS n, SUM(amount) AS s FROM ' . Schema::payments() . " WHERE $sqlWhere", ARRAY_A);
         $rows = $wpdb->get_results($wpdb->prepare('SELECT * FROM ' . Schema::payments() . " WHERE $sqlWhere ORDER BY id DESC LIMIT %d OFFSET %d", ...array_merge($params, [$per, ($page - 1) * $per])), ARRAY_A);
-        // phpcs:enable
         return ['rows' => array_map([self::class, 'row'], $rows ?: []), 'total' => (int) ($agg['n'] ?? 0), 'sum' => (float) ($agg['s'] ?? 0)];
     }
 

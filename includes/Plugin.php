@@ -36,9 +36,6 @@ final class Plugin
 
     public static function boot(): void
     {
-        add_action('init', static function (): void {
-            load_plugin_textdomain('sepo-membership', false, dirname(plugin_basename(SMEM_FILE)) . '/languages');
-        }, 1);
 
         PostTypes::hook();
         Bridge::hook();

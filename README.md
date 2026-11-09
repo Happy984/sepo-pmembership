@@ -1,6 +1,21 @@
 # Sepo Membership
 
+By [Euneolink Solutions](https://edu.sepodesk.com/) · Plugin page: [edu.sepodesk.com](https://edu.sepodesk.com/)
+
 Membership plans, donations and sponsorship for WordPress. Payments are confirmed by you, and the plugin adds a sponsors page and a members area with downloads, links, discussions and suggestions by plan.
+
+![Version](https://img.shields.io/badge/version-1.2.5-0b3d33)
+![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-21759b)
+![PHP](https://img.shields.io/badge/PHP-8.1%2B-777bb4)
+![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)
+
+There is no payment gateway and no outside service. The flow works like this:
+
+1. People pay by bank, mobile money, cash or a payment link.
+2. They tell you they have paid.
+3. You confirm the payment in the dashboard.
+
+Nothing opens until you confirm.
 
 <p align="center">
   <a href="https://edu.sepodesk.com/sponsor/projects-maintenance/">
@@ -13,20 +28,6 @@ Membership plans, donations and sponsorship for WordPress. Payments are confirme
   <br />
   <strong>Every contribution makes a difference. Thank you for supporting our work!</strong>
 </p>
-
-
-![Version](https://img.shields.io/badge/version-1.2.1-0b3d33)
-![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-21759b)
-![PHP](https://img.shields.io/badge/PHP-8.1%2B-777bb4)
-![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)
-
-There is no payment gateway and no outside service. The flow works like this:
-
-1. People pay by bank, mobile money, cash or a payment link.
-2. They tell you they have paid.
-3. You confirm the payment in the dashboard.
-
-Nothing opens until you confirm.
 
 ## Contents
 
@@ -103,10 +104,10 @@ Nothing opens until you confirm.
 
 ## Requirements
 
-| | Minimum |
-|---|---|
-| WordPress | 6.0 |
-| PHP | 8.1 |
+|           | Minimum |
+| --------- | ------- |
+| WordPress | 6.0     |
+| PHP       | 8.1     |
 
 ## Installation
 
@@ -144,14 +145,14 @@ Nothing opens until you confirm.
 
 Each shortcode has a matching block.
 
-| Shortcode | What it shows |
-|---|---|
-| `[sepo_membership_plans tiers="" period="" title="" intro=""]` | The pricing table |
-| `[sepo_membership_account]` | The member's own membership page |
-| `[sepo_members_area tier="" discussions_tier="" suggestions_tier="" collection="" show="downloads,links,discussions,suggestions" title=""]` | The members area |
-| `[sepo_sponsors show="stats,projects,sponsors,members" project="" projects="" title="" intro=""]` | The sponsors page |
-| `[sepo_donate project="" amounts="" title="" intro="" progress="yes"]` | A giving form |
-| `[sepo_members_only tier="gold" message=""]…[/sepo_members_only]` | Content for members of a plan only |
+| Shortcode                                                                                                                                   | What it shows                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `[sepo_membership_plans tiers="" period="" title="" intro=""]`                                                                              | The pricing table                  |
+| `[sepo_membership_account]`                                                                                                                 | The member's own membership page   |
+| `[sepo_members_area tier="" discussions_tier="" suggestions_tier="" collection="" show="downloads,links,discussions,suggestions" title=""]` | The members area                   |
+| `[sepo_sponsors show="stats,projects,sponsors,members" project="" projects="" title="" intro=""]`                                           | The sponsors page                  |
+| `[sepo_donate project="" amounts="" title="" intro="" progress="yes"]`                                                                      | A giving form                      |
+| `[sepo_members_only tier="gold" message=""]…[/sepo_members_only]`                                                                           | Content for members of a plan only |
 
 The members area reads its settings from the page it is on, so place the shortcode or block in the page content.
 
@@ -192,14 +193,14 @@ The pages the plugin created are left for you to keep or delete.
 
 ### Filters
 
-| Filter | Purpose |
-|---|---|
+| Filter                              | Purpose                                                                   |
+| ----------------------------------- | ------------------------------------------------------------------------- |
 | `sepo_membership_manage_capability` | Sets the capability for running the membership. Default `manage_options`. |
-| `sepo_membership_payment_methods` | Changes the payment methods. |
-| `sepo_membership_tiers` | Changes the tiers. |
-| `sepo_membership_sponsors` | Changes the sponsors list. |
-| `sepo_membership_proof_mimes` | Sets the accepted proof file types. |
-| `sepo_membership_resource_mimes` | Sets the accepted resource file types. |
+| `sepo_membership_payment_methods`   | Changes the payment methods.                                              |
+| `sepo_membership_tiers`             | Changes the tiers.                                                        |
+| `sepo_membership_sponsors`          | Changes the sponsors list.                                                |
+| `sepo_membership_proof_mimes`       | Sets the accepted proof file types.                                       |
+| `sepo_membership_resource_mimes`    | Sets the accepted resource file types.                                    |
 
 ### Actions
 
@@ -222,20 +223,44 @@ The pages the plugin created are left for you to keep or delete.
 
 ## Changelog
 
+### 1.2.5
+
+- The plugin is by Euneolink Solutions. Its plugin page and author page are edu.sepodesk.com.
+
+### 1.2.4
+
+- Readme: screenshots and their captions for the plugin directory.
+
+### 1.2.3
+
+- Admin screens: settings shown as cards, lists in a rounded frame, rounded fields and buttons, pill-shaped tabs and filters, and notices on tinted backgrounds.
+
+### 1.2.2
+
+- Proofs of payment and member files are stored and served through the WordPress file-system API.
+- Numbered placeholders in the file-size message, so translations can reorder them.
+- Uninstall clean-up runs inside a function.
+- Passes the WordPress Plugin Check: translator comments on every string with placeholders, escaped output, sanitised request data and documented database access to the plugin's own tables.
+- Tested up to WordPress 7.1.
+
 ### 1.2.1
+
 - Resources: **Remove this file** removes the private file at once, after you confirm, and says so.
 - A download with no file is not listed in the members area, and its address leads nowhere.
 
 ### 1.2.0
+
 - Resources: a download can be a file from the media library as well as a private upload. Members still get it through the plan check.
 
 ### 1.1.0
+
 - Withdrawing a payment is a request with a reason, approved or declined by the people who run the membership. The payer and you are emailed. Withdrawn payments are kept.
 - An activity log (**Membership → Activity log**), a history under each payment, and a trail for payers on their membership page.
 - Deleting a payment asks for a reason, which goes in the log.
 - Sponsors page: sections, cards and headings are centred.
 
 ### 1.0.0
+
 - First release, with:
   - plans and a pricing table;
   - manual and link payments with proof and confirmation;

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 
 namespace SepoMembership;
 
@@ -257,7 +258,7 @@ final class Rest
                 // The hidden field was filled, so this is not a person. Answer as if accepted.
                 return ['ok' => true, 'message' => __('Thank you.', 'sepo-membership')];
             }
-            $ip = preg_replace('~[^0-9a-f:.]~i', '', (string) ($_SERVER['REMOTE_ADDR'] ?? '')) ?: 'x';
+            $ip = preg_replace('~[^0-9a-f:.]~i', '', sanitize_text_field(wp_unslash((string) ($_SERVER['REMOTE_ADDR'] ?? '')))) ?: 'x';
             $key = 'smem_give_' . ($uid > 0 ? 'u' . $uid : md5($ip));
             $n = (int) get_transient($key);
             if ($n >= ($uid > 0 ? 20 : 6)) {

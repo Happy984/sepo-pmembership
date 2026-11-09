@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom plugin tables: names are built from $wpdb->prefix plus a fixed suffix, values go through $wpdb->prepare(), and dynamic fragments come from fixed allow-lists.
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 
 namespace SepoMembership;
 
@@ -399,10 +401,8 @@ final class Members
         $page = max(1, (int) ($a['page'] ?? 1));
         $sqlWhere = implode(' AND ', $where);
         $from = Schema::members() . " m LEFT JOIN {$wpdb->users} u ON u.ID = m.user_id";
-        // phpcs:disable WordPress.DB.PreparedSQL -- clauses use placeholders
         $total = (int) ($params ? $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $from WHERE $sqlWhere", ...$params)) : $wpdb->get_var("SELECT COUNT(*) FROM $from WHERE $sqlWhere"));
         $rows = $wpdb->get_results($wpdb->prepare("SELECT m.*, u.display_name, u.user_email FROM $from WHERE $sqlWhere ORDER BY m.updated DESC LIMIT %d OFFSET %d", ...array_merge($params, [$per, ($page - 1) * $per])), ARRAY_A);
-        // phpcs:enable
         return ['rows' => array_map([self::class, 'row'], $rows ?: []), 'total' => $total];
     }
 

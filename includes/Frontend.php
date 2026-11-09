@@ -84,7 +84,7 @@ final class Frontend
         $c = (string) $post->post_content;
         if (str_contains($c, '[sepo_membership_account') || str_contains($c, '[sepo_members_area') || str_contains($c, '[sepo_members_only') || str_contains($c, 'wp:sepo-membership/members-area') || str_contains($c, 'wp:sepo-membership/account')) {
             if (!defined('DONOTCACHEPAGE')) {
-                define('DONOTCACHEPAGE', true);
+                define('DONOTCACHEPAGE', true); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound -- shared flag read by page-cache plugins.
             }
             nocache_headers();
         }
@@ -137,19 +137,27 @@ final class Frontend
             'saving'        => __('Saving…', 'sepo-membership'),
             'sending'       => __('Sending…', 'sepo-membership'),
             'copied'        => __('Copied', 'sepo-membership'),
+            /* translators: %s: value. */
             'joinTitle'     => __('Join %s', 'sepo-membership'),
+            /* translators: %s: value. */
             'renewTitle'    => __('Renew %s', 'sepo-membership'),
+            /* translators: %s: value. */
             'upgradeTitle'  => __('Upgrade to %s', 'sepo-membership'),
             'youPay'        => __('You pay', 'sepo-membership'),
             'paid'          => __('I have paid', 'sepo-membership'),
             'sendPayment'   => __('Send payment details', 'sepo-membership'),
             'confirmSwitch' => __('Switch at renewal', 'sepo-membership'),
+            /* translators: %s: value. */
             'switchTitle'   => __('Move to %s?', 'sepo-membership'),
+            /* translators: %s: value. */
             'switchText'    => __('You keep your current plan until it runs out. %s starts with your next payment.', 'sepo-membership'),
             'needProof'     => __('Attach proof of payment, such as a screenshot or a receipt.', 'sepo-membership'),
-            'tooBig'        => __('%s is larger than %d MB.', 'sepo-membership'),
+            /* translators: 1: file name, 2: size in MB. */
+            'tooBig'        => __('%1$s is larger than %2$d MB.', 'sepo-membership'),
+            /* translators: %d: number. */
             'filesChosen'   => __('%d files chosen', 'sepo-membership'),
             'cancelTitle'   => __('Cancel your plan?', 'sepo-membership'),
+            /* translators: %s: value. */
             'cancelText'    => __('You keep your access until %s. After that the members area locks until you renew.', 'sepo-membership'),
             'cancelYes'     => __('Cancel plan', 'sepo-membership'),
             'keep'          => __('Keep my plan', 'sepo-membership'),
@@ -159,7 +167,9 @@ final class Frontend
             'withdrawHelp'  => __('Kept with the payment record and seen by the people who handle payments.', 'sepo-membership'),
             'withdrawNeed'  => __('Tell us briefly why you want to withdraw this payment.', 'sepo-membership'),
             'withdrawSend'  => __('Send request', 'sepo-membership'),
+            /* translators: %s: value. */
             'give'          => __('Give %s', 'sepo-membership'),
+            /* translators: %s: value. */
             'giveMonthly'   => __('Give %s monthly', 'sepo-membership'),
             'enterAmount'   => __('Enter the amount.', 'sepo-membership'),
             'enterName'     => __('Enter your name and a valid email address.', 'sepo-membership'),
@@ -179,6 +189,7 @@ final class Frontend
             'removeTitle'   => __('Remove this?', 'sepo-membership'),
             'removeThread'  => __('The whole conversation, with its replies, will be removed.', 'sepo-membership'),
             'removeReply'   => __('This reply will be removed.', 'sepo-membership'),
+            /* translators: %d: number. */
             'replies'       => __('%d replies', 'sepo-membership'),
             'oneReply'      => __('1 reply', 'sepo-membership'),
             'noReplies'     => __('No replies yet', 'sepo-membership'),
@@ -195,9 +206,11 @@ final class Frontend
             'loading'       => __('Loading…', 'sepo-membership'),
             'prev'          => __('Previous', 'sepo-membership'),
             'next'          => __('Next', 'sepo-membership'),
+            /* translators: %1$d: number, %2$d: number. */
             'pageOf'        => __('Page %1$d of %2$d', 'sepo-membership'),
             'allPosts'      => __('All discussions', 'sepo-membership'),
             'allIdeas'      => __('All suggestions', 'sepo-membership'),
+            /* translators: %s: value. */
             'by'            => __('by %s', 'sepo-membership'),
             'you'           => __('you', 'sepo-membership'),
             'statusOpen'    => __('Open', 'sepo-membership'),
@@ -293,9 +306,9 @@ final class Frontend
     /** admin-post.php?action=smem_proof: a proof of payment, for managers and for the payer. */
     public static function proof(): void
     {
-        $id = (int) ($_GET['payment'] ?? 0);
-        $index = (int) ($_GET['file'] ?? -1);
-        if (!wp_verify_nonce((string) ($_GET['_wpnonce'] ?? ''), 'smem_proof_' . $id)) {
+        $id = isset($_GET['payment']) ? absint($_GET['payment']) : 0;
+        $index = isset($_GET['file']) ? absint($_GET['file']) : -1;
+        if (!wp_verify_nonce(sanitize_text_field(wp_unslash((string) ($_GET['_wpnonce'] ?? ''))), 'smem_proof_' . $id)) {
             wp_die(esc_html__('This link has expired. Go back and open it again.', 'sepo-membership'), '', ['response' => 403, 'back_link' => true]);
         }
         $p = Payments::get($id);

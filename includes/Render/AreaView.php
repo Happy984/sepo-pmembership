@@ -36,7 +36,7 @@ final class AreaView
                 $sections[] = $s;
             }
         }
-        $tab = sanitize_key((string) ($_GET['smem_tab'] ?? ''));
+        $tab = sanitize_key(wp_unslash((string) ($_GET['smem_tab'] ?? ''))); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only tab choice.
         $tab = in_array($tab, $sections, true) ? $tab : ($sections[0] ?? 'downloads');
 
         $h = self::standing($uid, $cfg);
@@ -78,7 +78,7 @@ final class AreaView
             'smem-view' => 'area',
             'area'      => $pageId,
             'tab'       => $tab,
-            'item'      => (int) ($_GET['smem_item'] ?? 0),
+            'item'      => isset($_GET['smem_item']) ? absint($_GET['smem_item']) : 0, // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only item choice.
             'manage'    => Plugin::canManage() ? 1 : 0,
         ]);
     }

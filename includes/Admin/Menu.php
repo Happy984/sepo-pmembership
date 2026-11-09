@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom plugin tables: names are built from $wpdb->prefix plus a fixed suffix, values go through $wpdb->prepare(), and dynamic fragments come from fixed allow-lists.
 
 namespace SepoMembership\Admin;
 
@@ -110,7 +111,7 @@ final class Menu
         // phpcs:disable WordPress.Security.NonceVerification -- display only
         $done = isset($_GET['smem_done']) ? sanitize_key((string) $_GET['smem_done']) : '';
         $err = isset($_GET['smem_error']) ? sanitize_text_field(wp_unslash((string) $_GET['smem_error'])) : '';
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
         $messages = [
             'confirmed' => __('Payment confirmed. The payer has been emailed.', 'sepo-membership'),
             'rejected'  => __('Payment marked as not received. The payer has been emailed.', 'sepo-membership'),

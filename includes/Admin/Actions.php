@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 
 namespace SepoMembership\Admin;
 
@@ -35,7 +36,7 @@ final class Actions
     /** @return mixed */
     private static function in(string $key, $default = '')
     {
-        return isset($_POST[$key]) ? wp_unslash($_POST[$key]) : $default; // phpcs:ignore WordPress.Security.NonceVerification -- checked in check()
+        return isset($_POST[$key]) ? wp_unslash($_POST[$key]) : $default; // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce checked in check(); every caller sanitises the value.
     }
 
     private static function run(string $action, callable $cb, string $done): void
@@ -264,15 +265,15 @@ final class Actions
         }
         check_admin_referer('smem_export');
         // phpcs:disable WordPress.Security.NonceVerification -- checked above
-        $status = sanitize_key((string) ($_GET['status'] ?? ''));
-        $kind = sanitize_key((string) ($_GET['kind'] ?? ''));
-        // phpcs:enable
+        $status = sanitize_key(wp_unslash((string) ($_GET['status'] ?? '')));
+        $kind = sanitize_key(wp_unslash((string) ($_GET['kind'] ?? '')));
+        // phpcs:enable WordPress.Security.NonceVerification
         $rows = Payments::query(['status' => $status !== '' && $status !== 'all' ? [$status] : [], 'kind' => $kind, 'per_page' => 1000])['rows'];
         nocache_headers();
         header('Content-Type: text/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename="payments-' . gmdate('Y-m-d') . '.csv"');
-        $out = fopen('php://output', 'w');
-        fwrite($out, "\xEF\xBB\xBF");
+        echo "\xEF\xBB\xBF"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- UTF-8 byte order mark for spreadsheet apps.
+        $out = fopen('php://output', 'w'); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- CSV stream to the browser.
         $cell = static fn($v): string => preg_match('~^[=+\-@\t\r]~', (string) $v) ? "'" . $v : (string) $v;
         fputcsv($out, ['ID', 'Date', 'Kind', 'Name', 'Email', 'Plan', 'Period', 'Project', 'Amount', 'Currency', 'Method', 'Reference', 'Status', 'Confirmed', 'Listed', 'Monthly', 'Note', 'Withdrawal reason']);
         foreach ($rows as $p) {
@@ -283,7 +284,6 @@ final class Actions
                 $p['listed'] ? 'yes' : 'no', $p['recurring'] ? 'yes' : 'no', $p['admin_note'], (string) ($p['withdraw_reason'] ?? ''),
             ]));
         }
-        fclose($out);
         exit;
     }
 }

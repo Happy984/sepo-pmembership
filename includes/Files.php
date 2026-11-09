@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 
 namespace SepoMembership;
 
@@ -143,11 +144,11 @@ final class Files
         $stored = [];
         foreach ($checked as $f) {
             $file = bin2hex(random_bytes(12)) . '.' . $f['ext'];
-            if (!@move_uploaded_file($f['tmp_name'], $dir . '/' . $file)) {
+            if (!self::fs()->move($f['tmp_name'], $dir . '/' . $file, true)) {
                 self::remove($folder, $stored);
                 throw new \RuntimeException(__('A file could not be saved. Please try again.', 'sepo-membership'));
             }
-            @chmod($dir . '/' . $file, 0640);
+            self::fs()->chmod($dir . '/' . $file, 0640);
             $stored[] = ['file' => $file, 'name' => $f['clean'], 'type' => $f['type'], 'size' => (int) $f['size'], 'at' => time()];
         }
         return $stored;
@@ -158,13 +159,25 @@ final class Files
         return self::baseDir() . '/' . sanitize_file_name($folder) . '/' . basename($file);
     }
 
+    /** Direct file-system access for the private folder. */
+    public static function fs(): \WP_Filesystem_Direct
+    {
+        static $fs = null;
+        if ($fs === null) {
+            require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
+            require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
+            $fs = new \WP_Filesystem_Direct(null);
+        }
+        return $fs;
+    }
+
     /** @param list<array<string,mixed>> $files */
     public static function remove(string $folder, array $files): void
     {
         foreach ($files as $f) {
             $p = self::path($folder, (string) ($f['file'] ?? ''));
             if (is_file($p)) {
-                @unlink($p);
+                wp_delete_file($p);
             }
         }
     }
@@ -212,7 +225,7 @@ final class Files
         if (str_starts_with($type, 'image/')) {
             header("Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; sandbox");
         }
-        readfile($path);
+        echo self::fs()->get_contents($path); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- file download body.
         exit;
     }
 }

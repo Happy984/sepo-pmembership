@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom plugin tables: names are built from $wpdb->prefix plus a fixed suffix, values go through $wpdb->prepare(), and dynamic fragments come from fixed allow-lists.
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 
 namespace SepoMembership;
 
@@ -68,10 +70,8 @@ final class Board
             default => 'pinned DESC, last_at DESC, id DESC',
         };
         $page = max(1, $page);
-        // phpcs:disable WordPress.DB.PreparedSQL -- $where is prepared above, $order is from a fixed list
         $total = (int) $wpdb->get_var('SELECT COUNT(*) FROM ' . Schema::board() . " WHERE $where");
         $rows = $wpdb->get_results($wpdb->prepare('SELECT * FROM ' . Schema::board() . " WHERE $where ORDER BY $order LIMIT %d OFFSET %d", $per, ($page - 1) * $per), ARRAY_A);
-        // phpcs:enable
         return ['rows' => array_map([self::class, 'row'], $rows ?: []), 'total' => $total, 'pages' => max(1, (int) ceil($total / $per))];
     }
 

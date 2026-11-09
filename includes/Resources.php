@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_query, WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- Queries are bounded by indexes and limits.
 
 namespace SepoMembership;
 
@@ -233,7 +234,7 @@ final class Resources
         $cfg = self::areaConfig($area);
         $r = self::get($rid);
         $deny = static function (string $msg, int $code = 403): void {
-            wp_die(esc_html($msg), esc_html__('Members only', 'sepo-membership'), ['response' => $code, 'back_link' => true]);
+            wp_die(esc_html($msg), esc_html__('Members only', 'sepo-membership'), ['response' => (int) $code, 'back_link' => true]);
         };
         if ($cfg === null || $r === null || $r['status'] !== 'publish') {
             $deny(__('That resource is not available.', 'sepo-membership'), 404);
@@ -254,7 +255,8 @@ final class Resources
                 return;
             }
             header('Referrer-Policy: no-referrer');
-            wp_redirect($r['url'], 302, 'Sepo Membership');
+            // Member links point to outside services; the address was saved by an editor through esc_url_raw().
+            wp_redirect($r['url'], 302, 'Sepo Membership'); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect
             exit;
         }
         if (!empty($r['file']['media'])) {

@@ -35,7 +35,7 @@ final class PlansView
                 }
             }
         }
-        $want = sanitize_key((string) ($_GET['smem_period'] ?? ($atts['period'] ?? '')));
+        $want = sanitize_key(wp_unslash((string) ($_GET['smem_period'] ?? ($atts['period'] ?? '')))); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only period choice.
         $period = in_array($want, $periods, true) ? $want : (in_array('monthly', $periods, true) ? 'monthly' : $periods[0]);
 
         $uid = get_current_user_id();

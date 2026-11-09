@@ -3,12 +3,11 @@
 /**
  * Plugin Name:       Sepo Membership
  * Description:       Paid membership plans with pricing tables, manual and link payments confirmed by you, donations with goals, a sponsors page, and a members area with tier-gated downloads, links, discussions and suggestions. Works with Sepo WordPress Bridge tiers. Runs on WordPress alone.
- * Version:           1.2.1
+ * Version:           1.2.5
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            Euneolink Solutions
- * Author URI:        https://sepodesk.com
- * Plugin URI:        https://edu.sepodesk.com
+ * Author URI:        https://edu.sepodesk.com/
  * License:           GPL-2.0-or-later
  * Text Domain:       sepo-membership
  * Domain Path:       /languages
@@ -29,10 +28,12 @@ if (version_compare(PHP_VERSION, '8.1', '<')) {
     return;
 }
 
-define('SMEM_VERSION', '1.2.1');
+define('SMEM_VERSION', '1.2.5');
 define('SMEM_FILE', __FILE__);
 define('SMEM_DIR', plugin_dir_path(__FILE__));
 define('SMEM_URL', plugin_dir_url(__FILE__));
+
+require_once __DIR__ . '/includes/admin-skin.php';
 
 spl_autoload_register(static function (string $class): void {
     $prefix = 'SepoMembership\\';

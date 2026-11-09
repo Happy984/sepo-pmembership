@@ -97,12 +97,12 @@ final class MetaBoxes
             return;
         }
         // phpcs:disable WordPress.Security.NonceVerification -- checked in canSave()
-        update_post_meta($id, '_smem_goal', max(0, (float) ($_POST['smem_goal'] ?? 0)));
+        update_post_meta($id, '_smem_goal', max(0, (float) sanitize_text_field(wp_unslash((string) ($_POST['smem_goal'] ?? '0')))));
         $d = sanitize_text_field(wp_unslash((string) ($_POST['smem_deadline'] ?? '')));
         update_post_meta($id, '_smem_deadline', preg_match('~^\d{4}-\d{2}-\d{2}$~', $d) ? $d : '');
         update_post_meta($id, '_smem_close_at_goal', !empty($_POST['smem_close_at_goal']) ? 1 : 0);
         update_post_meta($id, '_smem_closed', !empty($_POST['smem_closed']) ? 1 : 0);
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
     }
 
     // ---------------------------------------------------------- sponsors
@@ -140,9 +140,9 @@ final class MetaBoxes
         // phpcs:disable WordPress.Security.NonceVerification -- checked in canSave()
         $level = sanitize_key((string) ($_POST['smem_level'] ?? ''));
         update_post_meta($id, '_smem_level', isset(Settings::sponsorLevels()[$level]) ? $level : '');
-        update_post_meta($id, '_smem_url', esc_url_raw(trim((string) wp_unslash($_POST['smem_url'] ?? ''))));
+        update_post_meta($id, '_smem_url', esc_url_raw(trim(sanitize_text_field(wp_unslash((string) ($_POST['smem_url'] ?? ''))))));
         update_post_meta($id, '_smem_projects', array_values(array_filter(array_map('absint', (array) ($_POST['smem_projects'] ?? [])))));
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
     }
 
     // ---------------------------------------------------------- resources
@@ -217,14 +217,14 @@ final class MetaBoxes
             return;
         }
         // phpcs:disable WordPress.Security.NonceVerification -- checked in canSave()
-        $type = ($_POST['smem_type'] ?? '') === 'link' ? 'link' : 'download';
+        $type = sanitize_key(wp_unslash((string) ($_POST['smem_type'] ?? ''))) === 'link' ? 'link' : 'download';
         update_post_meta($id, '_smem_type', $type);
         $tier = sanitize_key((string) ($_POST['smem_tier'] ?? ''));
         update_post_meta($id, '_smem_tier', Tiers::get($tier) !== null ? $tier : '');
-        $url = esc_url_raw(trim((string) wp_unslash($_POST['smem_url'] ?? '')), ['http', 'https']);
+        $url = esc_url_raw(trim(sanitize_text_field(wp_unslash((string) ($_POST['smem_url'] ?? '')))), ['http', 'https']);
         update_post_meta($id, '_smem_url', $url);
 
-        update_post_meta($id, '_smem_source', ($_POST['smem_source'] ?? '') === 'media' ? 'media' : 'private');
+        update_post_meta($id, '_smem_source', sanitize_key(wp_unslash((string) ($_POST['smem_source'] ?? ''))) === 'media' ? 'media' : 'private');
         $att = absint($_POST['smem_attachment'] ?? 0);
         update_post_meta($id, '_smem_attachment', $att > 0 && get_post_type($att) === 'attachment' ? $att : 0);
 
@@ -234,10 +234,10 @@ final class MetaBoxes
             delete_post_meta($id, '_smem_file');
             $old = null;
         }
-        if (isset($_FILES['smem_file']) && is_array($_FILES['smem_file']) && (int) ($_FILES['smem_file']['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+        if (isset($_FILES['smem_file']['error']) && absint($_FILES['smem_file']['error']) !== UPLOAD_ERR_NO_FILE) {
             try {
                 $server = max(1, (int) floor(wp_max_upload_size() / 1048576));
-                $stored = Files::store('resources', Files::fromUpload($_FILES['smem_file']), Files::resourceMimes(), $server, 1);
+                $stored = Files::store('resources', Files::fromUpload($_FILES['smem_file']), Files::resourceMimes(), $server, 1); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- type, size and name are checked in Files::store().
                 if ($stored !== []) {
                     if (is_array($old)) {
                         Files::remove('resources', [$old]);
@@ -248,6 +248,6 @@ final class MetaBoxes
                 set_transient('smem_res_err_' . get_current_user_id(), $e->getMessage(), 120);
             }
         }
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
     }
 }

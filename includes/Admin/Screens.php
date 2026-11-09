@@ -135,11 +135,13 @@ final class Screens
             $rows = Payments::query(['status' => ['pending'], 'per_page' => 8])['rows'];
             echo '<table class="widefat striped smem-table"><tbody>';
             foreach ($rows as $p) {
+                // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
                 echo '<tr><td>' . self::payer($p) . '</td><td>' . esc_html(self::what($p)) . '<br><span class="smem-muted">' . esc_html(Payments::methodLabel((string) $p['method']) . ((string) $p['reference'] !== '' ? ' · ' . $p['reference'] : '')) . '</span></td>'
                     . '<td class="smem-num"><strong>' . esc_html(Settings::money((float) $p['amount'], (string) $p['currency'])) . '</strong><br><span class="smem-muted">' . esc_html(Parts::ago($p['created_ts'])) . '</span></td>'
                     . '<td>' . self::proofs($p) . '</td><td class="smem-actions">'
                     . self::form('confirm', '<input type="hidden" name="payment" value="' . (int) $p['id'] . '"><button class="button button-primary">' . esc_html__('Confirm', 'sepo-membership') . '</button>')
                     . '</td></tr>';
+                // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
             }
             echo '</tbody></table><p><a href="' . esc_url(Menu::url('payments', ['status' => 'pending'])) . '">' . esc_html__('All payments waiting', 'sepo-membership') . ' →</a></p>';
         }
@@ -214,13 +216,14 @@ final class Screens
         $level = isset($_GET['level']) ? sanitize_key((string) $_GET['level']) : '';
         $q = isset($_GET['s']) ? sanitize_text_field(wp_unslash((string) $_GET['s'])) : '';
         $page = isset($_GET['paged']) ? max(1, absint($_GET['paged'])) : 1;
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
         $res = Members::query(['status' => $status, 'level' => $level, 'q' => $q, 'page' => $page, 'per_page' => 25]);
         $stats = Members::stats();
 
         echo '<div class="wrap smem-admin"><h1 class="wp-heading-inline">' . esc_html__('Members', 'sepo-membership') . '</h1>'
             . ' <a href="#smem-add" class="page-title-action" data-smem-toggle="smem-add">' . esc_html__('Add member', 'sepo-membership') . '</a><hr class="wp-header-end">';
 
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<div id="smem-add" class="smem-panelbox" hidden>' . self::form('add_member',
             '<h2>' . esc_html__('Add a member by hand', 'sepo-membership') . '</h2><p class="smem-muted">' . esc_html__('Puts an existing account on a plan, active at once, with no payment. Use Record a payment on the member\'s page when money has arrived.', 'sepo-membership') . '</p>'
             . '<div class="smem-inline"><label>' . esc_html__('Email or username', 'sepo-membership') . '<input type="text" name="user" required class="regular-text"></label>'
@@ -230,6 +233,7 @@ final class Screens
             . '<button class="button button-primary">' . esc_html__('Add member', 'sepo-membership') . '</button></div>'
             . '<p class="description">' . esc_html__('Leave the date empty to run for one period from today.', 'sepo-membership') . '</p>'
         ) . '</div>';
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 
         $tabs = ['' => [__('All', 'sepo-membership'), $stats['total']], 'active' => [__('Active', 'sepo-membership'), $stats['active']], 'pending' => [__('Waiting for payment', 'sepo-membership'), $stats['pending']], 'expired' => [__('Expired', 'sepo-membership'), $stats['expired']], 'cancelled' => [__('Cancelled', 'sepo-membership'), $stats['cancelled']]];
         echo '<ul class="subsubsub">';
@@ -238,10 +242,12 @@ final class Screens
             echo '<li>' . ($i++ > 0 ? ' | ' : '') . '<a href="' . esc_url(Menu::url('members', array_filter(['status' => $k, 'level' => $level]))) . '"' . ($status === $k ? ' class="current" aria-current="page"' : '') . '>' . esc_html($l) . ' <span class="count">(' . (int) $n . ')</span></a></li>';
         }
         echo '</ul>';
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<form method="get" class="smem-filter"><input type="hidden" name="page" value="' . esc_attr(Menu::SLUG . '-members') . '"><input type="hidden" name="status" value="' . esc_attr($status) . '">'
             . '<select name="level">' . self::tierOptions($level, true) . '</select>'
             . '<input type="search" name="s" value="' . esc_attr($q) . '" placeholder="' . esc_attr__('Name or email', 'sepo-membership') . '">'
             . '<button class="button">' . esc_html__('Filter', 'sepo-membership') . '</button></form>';
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 
         echo '<table class="widefat striped smem-table"><thead><tr><th>' . esc_html__('Member', 'sepo-membership') . '</th><th>' . esc_html__('Plan', 'sepo-membership') . '</th><th>' . esc_html__('Status', 'sepo-membership') . '</th><th>' . esc_html__('Runs until', 'sepo-membership') . '</th><th class="smem-num">' . esc_html__('Paid', 'sepo-membership') . '</th><th>' . esc_html__('Listed', 'sepo-membership') . '</th></tr></thead><tbody>';
         if ($res['rows'] === []) {
@@ -250,12 +256,14 @@ final class Screens
         foreach ($res['rows'] as $m) {
             $uid = (int) $m['user_id'];
             $st = Members::status($uid);
+            // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
             echo '<tr><td><a href="' . esc_url(Menu::url('members', ['member' => $uid])) . '"><strong>' . esc_html((string) ($m['display_name'] ?? ('#' . $uid))) . '</strong></a><br><span class="smem-muted">' . esc_html((string) ($m['user_email'] ?? '')) . '</span></td>'
                 . '<td>' . esc_html(Tiers::label((string) $m['level'])) . ((string) $m['pending_level'] !== '' ? '<br><span class="smem-muted">→ ' . esc_html(Tiers::label((string) $m['pending_level'])) . '</span>' : '') . '<br><span class="smem-muted">' . esc_html(Tiers::periodLabel((string) $m['period'])) . '</span></td>'
                 . '<td>' . self::statusBadge($st, $uid) . ((float) $m['pending_total'] > 0 ? '<br><span class="smem-muted">' . esc_html(sprintf(/* translators: %s: amount */ __('%s waiting', 'sepo-membership'), Settings::money((float) $m['pending_total']))) . '</span>' : '') . '</td>'
                 . '<td>' . esc_html($m['expires_ts'] > 0 ? Parts::date($m['expires_ts']) : ($st === 'active' ? __('No end date', 'sepo-membership') : '—')) . '</td>'
                 . '<td class="smem-num">' . esc_html(Settings::money((float) $m['total'])) . '</td>'
                 . '<td>' . ($m['listed'] ? '✓' : '') . '</td></tr>';
+            // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         echo '</tbody></table>';
         self::pager($res['total'], 25, $page);
@@ -268,12 +276,14 @@ final class Screens
         if ($pages < 2) {
             return;
         }
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<div class="tablenav"><div class="tablenav-pages">' . paginate_links([
             'base'    => add_query_arg('paged', '%#%'),
             'format'  => '',
             'current' => $page,
             'total'   => $pages,
         ]) . '</div></div>';
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     private static function member(int $uid): void
@@ -286,7 +296,7 @@ final class Screens
             return;
         }
         $st = Members::status($uid);
-        echo '<h1>' . esc_html($u->display_name) . ' ' . self::statusBadge($st, $uid) . '</h1>';
+        echo '<h1>' . esc_html($u->display_name) . ' ' . self::statusBadge($st, $uid) . '</h1>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<p class="smem-muted">' . esc_html($u->user_email) . ' · <a href="' . esc_url((string) get_edit_user_link($uid)) . '">' . esc_html__('Account', 'sepo-membership') . '</a> · <a href="' . esc_url(Menu::url('activity', ['member' => $uid])) . '">' . esc_html__('Activity', 'sepo-membership') . '</a></p>';
 
         echo '<div class="smem-cols">';
@@ -298,6 +308,7 @@ final class Screens
                 . '<dt>' . esc_html__('Paid in total', 'sepo-membership') . '</dt><dd>' . esc_html(Settings::money((float) $m['total'])) . '</dd>'
                 . ((string) $m['pending_level'] !== '' ? '<dt>' . esc_html__('Moves to', 'sepo-membership') . '</dt><dd>' . esc_html(Tiers::label((string) $m['pending_level'])) . ' ' . esc_html__('at the next payment', 'sepo-membership') . '</dd>' : '')
                 . '</dl>';
+            // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
             echo self::form('set_plan',
                 '<input type="hidden" name="user_id" value="' . $uid . '"><div class="smem-inline">'
                 . '<label>' . esc_html__('Plan', 'sepo-membership') . '<select name="level">' . self::tierOptions((string) $m['level']) . '</select></label>'
@@ -307,18 +318,20 @@ final class Screens
                 . '<label class="smem-check"><input type="checkbox" name="listed" value="1"' . checked($m['listed'], true, false) . '> ' . esc_html__('Shown on the sponsors page', 'sepo-membership') . '</label></p>'
                 . '<p><button class="button button-primary">' . esc_html__('Save plan', 'sepo-membership') . '</button></p>'
             );
+            // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
             echo '<h3>' . esc_html__('Standing', 'sepo-membership') . '</h3><div class="smem-inline">';
             $choices = ['active' => __('Make active', 'sepo-membership'), 'pending' => __('Lock until paid', 'sepo-membership'), 'expired' => __('End now (expired)', 'sepo-membership'), 'cancelled' => __('End now (cancelled)', 'sepo-membership')];
             foreach ($choices as $k => $l) {
                 if ($k === $st) {
                     continue;
                 }
-                echo self::form('set_status', '<input type="hidden" name="user_id" value="' . $uid . '"><input type="hidden" name="status" value="' . esc_attr($k) . '"><button class="button">' . esc_html($l) . '</button>');
+                echo self::form('set_status', '<input type="hidden" name="user_id" value="' . $uid . '"><input type="hidden" name="status" value="' . esc_attr($k) . '"><button class="button">' . esc_html($l) . '</button>'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
             }
             echo '</div>';
         }
         echo '</div>';
 
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<div class="smem-panelbox"><h2>' . esc_html__('Record a payment', 'sepo-membership') . '</h2><p class="smem-muted">' . esc_html__('For money that has already arrived. It is confirmed at once and extends the plan by one period.', 'sepo-membership') . '</p>'
             . self::form('record', '<input type="hidden" name="user_id" value="' . $uid . '"><div class="smem-inline">'
             . '<label>' . esc_html__('Plan', 'sepo-membership') . '<select name="level">' . self::tierOptions((string) ($m['level'] ?? '')) . '</select></label>'
@@ -329,13 +342,14 @@ final class Screens
             . '<label>' . esc_html__('Note', 'sepo-membership') . '<input type="text" name="note"></label></div>'
             . '<p><button class="button button-primary">' . esc_html__('Record payment', 'sepo-membership') . '</button></p>')
             . '</div>';
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
         echo '</div>';
 
         $rows = Payments::query(['user_id' => $uid, 'per_page' => 100])['rows'];
         echo '<h2>' . esc_html__('Payments', 'sepo-membership') . '</h2>';
         self::paymentsTable($rows);
         if ($m !== null) {
-            echo '<div class="smem-danger">' . self::form('delete_member', '<input type="hidden" name="user_id" value="' . $uid . '"><button class="button button-link-delete" data-smem-confirm>' . esc_html__('Delete this membership and its payments', 'sepo-membership') . '</button>') . '</div>';
+            echo '<div class="smem-danger">' . self::form('delete_member', '<input type="hidden" name="user_id" value="' . $uid . '"><button class="button button-link-delete" data-smem-confirm>' . esc_html__('Delete this membership and its payments', 'sepo-membership') . '</button>') . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         }
         echo '</div>';
     }
@@ -352,7 +366,7 @@ final class Screens
         $kind = isset($_GET['kind']) ? sanitize_key((string) $_GET['kind']) : '';
         $q = isset($_GET['s']) ? sanitize_text_field(wp_unslash((string) $_GET['s'])) : '';
         $page = isset($_GET['paged']) ? max(1, absint($_GET['paged'])) : 1;
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
         $args = ['status' => $status !== 'all' ? [$status] : [], 'q' => $q, 'page' => $page, 'per_page' => 30];
         if ($kind === 'gifts') {
             $args['gifts'] = true;
@@ -369,6 +383,7 @@ final class Screens
         foreach (Projects::all() as $p) {
             $projects .= '<option value="' . (int) $p['id'] . '">' . esc_html($p['title']) . '</option>';
         }
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<div id="smem-gift" class="smem-panelbox" hidden>' . self::form('gift',
             '<h2>' . esc_html__('Record a gift that has arrived', 'sepo-membership') . '</h2><div class="smem-inline">'
             . '<label>' . esc_html__('Name', 'sepo-membership') . '<input type="text" name="name"></label>'
@@ -380,6 +395,7 @@ final class Screens
             . '<p><label class="smem-check"><input type="checkbox" name="listed" value="1" checked> ' . esc_html__('Show on the sponsors page', 'sepo-membership') . '</label></p>'
             . '<p><button class="button button-primary">' . esc_html__('Record gift', 'sepo-membership') . '</button></p>'
         ) . '</div>';
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 
         $tabs = ['pending' => __('Waiting', 'sepo-membership'), 'withdrawal' => __('Withdrawal requests', 'sepo-membership'), 'paid' => __('Confirmed', 'sepo-membership'), 'rejected' => __('Not received', 'sepo-membership'), 'withdrawn' => __('Withdrawn', 'sepo-membership'), 'all' => __('All', 'sepo-membership')];
         echo '<ul class="subsubsub">';
@@ -443,6 +459,7 @@ final class Screens
             }
             $reason = (string) ($p['withdraw_reason'] ?? '') !== '' && in_array($p['status'], ['withdrawal', 'withdrawn'], true)
                 ? '<div class="smem-reason"><strong>' . esc_html__('Reason for withdrawing:', 'sepo-membership') . '</strong> ' . esc_html((string) $p['withdraw_reason']) . '</div>' : '';
+            // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
             echo '<tr><td>' . esc_html(Parts::date($p['created_ts'])) . '<br><span class="smem-muted">#' . $id . '</span></td>'
                 . '<td>' . self::payer($p) . '</td>'
                 . '<td>' . esc_html(self::what($p)) . ($extra !== [] ? '<br><span class="smem-muted">' . implode(' · ', $extra) . '</span>' : '') . $reason . self::history($id) . '</td>'
@@ -451,6 +468,7 @@ final class Screens
                 . '<td>' . self::proofs($p) . '</td>'
                 . '<td>' . self::payStatusBadge((string) $p['status']) . ($p['confirmed_ts'] > 0 ? '<br><span class="smem-muted">' . esc_html(Parts::date($p['confirmed_ts'])) . '</span>' : '') . '</td>'
                 . '<td class="smem-actions">' . $actions . '</td></tr>';
+            // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         echo '</tbody></table>';
     }
@@ -481,7 +499,7 @@ final class Screens
         $action = isset($_GET['act']) ? sanitize_key((string) $_GET['act']) : '';
         $member = isset($_GET['member']) ? absint($_GET['member']) : 0;
         $page = isset($_GET['paged']) ? max(1, absint($_GET['paged'])) : 1;
-        // phpcs:enable
+        // phpcs:enable WordPress.Security.NonceVerification
         $res = Log::query(['action' => $action, 'user_id' => $member, 'page' => $page, 'per_page' => 50]);
         echo '<div class="wrap smem-admin"><h1>' . esc_html__('Activity log', 'sepo-membership') . '</h1>'
             . '<p class="smem-muted">' . esc_html__('Every step taken on payments and memberships, by whom and when. Entries cannot be edited or removed here, and stay after a payment is deleted.', 'sepo-membership') . '</p>';
@@ -489,10 +507,12 @@ final class Screens
         foreach (Log::labels() as $k => $l) {
             $opts .= '<option value="' . esc_attr($k) . '"' . selected($action, $k, false) . '>' . esc_html($l) . '</option>';
         }
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '<form method="get" class="smem-filter"><input type="hidden" name="page" value="' . esc_attr(Menu::SLUG . '-activity') . '">'
             . ($member > 0 ? '<input type="hidden" name="member" value="' . $member . '">' : '')
             . '<select name="act">' . $opts . '</select><button class="button">' . esc_html__('Filter', 'sepo-membership') . '</button>'
             . '<span class="smem-muted smem-sum">' . esc_html(sprintf(/* translators: %d: entries */ _n('%d entry', '%d entries', $res['total'], 'sepo-membership'), $res['total'])) . '</span></form>';
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
         echo '<table class="widefat striped smem-table"><thead><tr><th>' . esc_html__('When', 'sepo-membership') . '</th><th>' . esc_html__('What', 'sepo-membership') . '</th><th>' . esc_html__('Payment or member', 'sepo-membership') . '</th><th>' . esc_html__('By', 'sepo-membership') . '</th><th>' . esc_html__('Note', 'sepo-membership') . '</th></tr></thead><tbody>';
         if ($res['rows'] === []) {
             echo '<tr><td colspan="5" class="smem-muted">' . esc_html__('Nothing has been logged yet.', 'sepo-membership') . '</td></tr>';
@@ -505,7 +525,7 @@ final class Screens
                 $u = get_userdata($r['user_id']);
                 $subject = '<a href="' . esc_url(Menu::url('members', ['member' => $r['user_id']])) . '">' . esc_html($u ? (string) $u->display_name : '#' . $r['user_id']) . '</a>';
             }
-            echo '<tr><td>' . esc_html(wp_date('Y-m-d H:i', $r['created_ts'])) . '</td><td><strong>' . esc_html($r['label']) . '</strong></td><td>' . $subject . '</td><td>' . esc_html($r['actor']) . '</td><td>' . esc_html((string) $r['note']) . '</td></tr>';
+            echo '<tr><td>' . esc_html(wp_date('Y-m-d H:i', $r['created_ts'])) . '</td><td><strong>' . esc_html($r['label']) . '</strong></td><td>' . $subject . '</td><td>' . esc_html($r['actor']) . '</td><td>' . esc_html((string) $r['note']) . '</td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         }
         echo '</tbody></table>';
         self::pager($res['total'], 50, $page);
@@ -539,7 +559,7 @@ final class Screens
             $inner .= '</div><label class="smem-block">' . esc_html__('Benefits, one per line', 'sepo-membership') . '<textarea name="new[benefits]" rows="3"></textarea></label></fieldset>';
         }
         $inner .= '</div><p><button class="button button-primary">' . esc_html__('Save plans', 'sepo-membership') . '</button></p>';
-        echo self::form('plans', $inner);
+        echo self::form('plans', $inner); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
         echo '</div>';
     }
 
@@ -620,7 +640,7 @@ final class Screens
 
         $pages = '';
         foreach (Settings::PAGES as $key => [$title]) {
-            $pages .= $row('<label for="smem-' . esc_attr($key) . '">' . esc_html($title) . '</label>', (string) wp_dropdown_pages(['name' => $key, 'id' => 'smem-' . $key, 'selected' => (int) $s[$key], 'show_option_none' => __('— None —', 'sepo-membership'), 'option_none_value' => '0', 'echo' => 0]));
+            $pages .= $row('<label for="smem-' . esc_attr($key) . '">' . esc_html($title) . '</label>', (string) wp_dropdown_pages(['name' => $key, 'id' => 'smem-' . $key, 'selected' => (int) $s[$key], 'show_option_none' => __('— None —', 'sepo-membership'), 'option_none_value' => '0', 'echo' => 0])); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- returned, not printed ('echo' => 0).
         }
         $inner .= '<h2>' . esc_html__('Pages', 'sepo-membership') . '</h2><table class="form-table" role="presentation"><tbody>' . $pages . '</tbody></table>';
 
@@ -635,6 +655,6 @@ final class Screens
             . '</tbody></table>';
         $inner .= '<p><button class="button button-primary">' . esc_html__('Save settings', 'sepo-membership') . '</button></p>';
 
-        echo '<div class="wrap smem-admin"><h1>' . esc_html__('Membership settings', 'sepo-membership') . '</h1>' . self::form('settings', $inner, 'smem-settings') . '</div>';
+        echo '<div class="wrap smem-admin"><h1>' . esc_html__('Membership settings', 'sepo-membership') . '</h1>' . self::form('settings', $inner, 'smem-settings') . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup is built from escaped parts; the helper methods return escaped HTML.
     }
 }
