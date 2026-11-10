@@ -7,7 +7,7 @@ namespace SepoMembership;
 defined('ABSPATH') || exit;
 
 /**
- * Working with Sepo WordPress Bridge.
+ * Working with Sepo Bridge.
  *
  * The Bridge gates posts, menus and blocks by tier. This plugin tells it who
  * holds which tier through its own filter, so a gate there opens only for a

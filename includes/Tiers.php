@@ -9,7 +9,7 @@ defined('ABSPATH') || exit;
 /**
  * Membership tiers and their plans.
  *
- * The tier list (id, name, rank) comes from Sepo WordPress Bridge when it is
+ * The tier list (id, name, rank) comes from Sepo Bridge when it is
  * active and has tiers, so a plan here and a gate there mean the same thing.
  * Without the Bridge the plugin keeps its own list. Either way this plugin
  * keeps the plan details per tier: prices per period, benefits, a short
@@ -24,7 +24,7 @@ final class Tiers
     /** @var array<string,array<string,mixed>>|null */
     private static ?array $cache = null;
 
-    /** Whether the tier list comes from Sepo WordPress Bridge. */
+    /** Whether the tier list comes from Sepo Bridge. */
     public static function fromBridge(): bool
     {
         return class_exists('\\SepoWB\\TierStore') && (new \SepoWB\TierStore())->tiers() !== [];
