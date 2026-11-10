@@ -4,7 +4,7 @@ Tags: membership, donations, sponsors, pricing table, members area
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv2 or later
 
 Membership plans, donations and sponsorship with payments you confirm by hand, a sponsors page and a members-only area.
@@ -43,9 +43,9 @@ Sepo Membership runs on WordPress alone. It uses no payment gateway and no outsi
 * Each section and each resource can need a plan; members see what a higher plan adds, marked as locked.
 * Everything is checked again on the server for every download, link and post. Without an active, confirmed plan nothing from the area reaches the page.
 
-**Sepo WordPress Bridge**
+**Sepo Bridge**
 
-When Sepo WordPress Bridge is active and has tiers, the plans here use the Bridge's tiers. The Bridge's tier gates then open for members whose plan here is active and paid, its join and account links point at this plugin's pages, and the member's tier is written to their account. A tier you gave by hand in the Bridge is left alone.
+When Sepo Bridge is active and has tiers, the plans here use the Bridge's tiers. The Bridge's tier gates then open for members whose plan here is active and paid, its join and account links point at this plugin's pages, and the member's tier is written to their account. A tier you gave by hand in the Bridge is left alone.
 
 == Shortcodes and blocks ==
 
@@ -87,6 +87,9 @@ The plugin adds text to the privacy policy guide and works with WordPress's expo
 
 == Changelog ==
 
+= 1.2.6 =
+* The companion plugin is called Sepo Bridge throughout the settings and the guide.
+
 = 1.2.5 =
 * The plugin is by Euneolink Solutions. Its plugin page and author page are edu.sepodesk.com.
 
@@ -117,4 +120,4 @@ The plugin adds text to the privacy policy guide and works with WordPress's expo
 * Sponsors page: sections, cards and headings are centred.
 
 = 1.0.0 =
-* First release: plans and pricing table, manual and link payments with proof and confirmation, member accounts, giving with goals and projects, sponsors page, members area with gated downloads and links, discussions and suggestions with voting, Sepo WordPress Bridge tiers, blocks, privacy tools.
+* First release: plans and pricing table, manual and link payments with proof and confirmation, member accounts, giving with goals and projects, sponsors page, members area with gated downloads and links, discussions and suggestions with voting, Sepo Bridge tiers, blocks, privacy tools.

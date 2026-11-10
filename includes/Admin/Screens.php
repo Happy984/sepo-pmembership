@@ -194,8 +194,8 @@ final class Screens
         echo '<tr><td><code>[sepo_members_only tier="gold"]…[/sepo_members_only]</code><br><span class="smem-muted">' . esc_html__('Part of any page, for members at a plan or above.', 'sepo-membership') . '</span></td><td></td></tr>';
         echo '</tbody></table>';
         echo '<p class="smem-muted">' . esc_html(Tiers::bridgeActive()
-            ? (Tiers::fromBridge() ? __('Plans use the tiers from Sepo WordPress Bridge. Its tier gates open for members whose plan here is active and paid.', 'sepo-membership') : __('Sepo WordPress Bridge is active but has no tiers yet. Add tiers there to share them, or use the plans set up here.', 'sepo-membership'))
-            : __('Plans use the tiers set up here. With Sepo WordPress Bridge active, they are shared with it.', 'sepo-membership')) . '</p></div>';
+            ? (Tiers::fromBridge() ? __('Plans use the tiers from Sepo Bridge. Its tier gates open for members whose plan here is active and paid.', 'sepo-membership') : __('Sepo Bridge is active but has no tiers yet. Add tiers there to share them, or use the plans set up here.', 'sepo-membership'))
+            : __('Plans use the tiers set up here. With Sepo Bridge active, they are shared with it.', 'sepo-membership')) . '</p></div>';
         echo '</div>';
     }
 
@@ -542,7 +542,7 @@ final class Screens
         $bridge = Tiers::fromBridge();
         echo '<div class="wrap smem-admin"><h1>' . esc_html__('Plans and prices', 'sepo-membership') . '</h1>';
         if ($bridge) {
-            echo '<div class="smem-notice-tint smem-box"><p>' . esc_html__('The tiers come from Sepo WordPress Bridge, so a plan here and a tier gate there mean the same thing. Rename, rank or add tiers in the Bridge; set prices and benefits here.', 'sepo-membership') . '</p></div>';
+            echo '<div class="smem-notice-tint smem-box"><p>' . esc_html__('The tiers come from Sepo Bridge, so a plan here and a tier gate there mean the same thing. Rename, rank or add tiers in the Bridge; set prices and benefits here.', 'sepo-membership') . '</p></div>';
         }
         $inner = '<p class="smem-muted">' . esc_html__('Leave a price empty to not offer that period. A price of 0 makes the plan free: it opens at once with no payment.', 'sepo-membership') . '</p><div class="smem-plans-admin">';
         foreach (Tiers::all() as $t) {

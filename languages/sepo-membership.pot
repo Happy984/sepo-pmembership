@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sepo Membership 1.2.5\n"
+"Project-Id-Version: Sepo Membership 1.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sepo-membership\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-08T13:04:53+00:00\n"
+"POT-Creation-Date: 2026-11-09T14:51:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: sepo-membership\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #. Description of the plugin
 #: sepo-membership.php
-msgid "Paid membership plans with pricing tables, manual and link payments confirmed by you, donations with goals, a sponsors page, and a members area with tier-gated downloads, links, discussions and suggestions. Works with Sepo WordPress Bridge tiers. Runs on WordPress alone."
+msgid "Paid membership plans with pricing tables, manual and link payments confirmed by you, donations with goals, a sponsors page, and a members area with tier-gated downloads, links, discussions and suggestions. Works with Sepo Bridge tiers. Runs on WordPress alone."
 msgstr ""
 
 #. Author of the plugin
@@ -507,15 +507,15 @@ msgid "Part of any page, for members at a plan or above."
 msgstr ""
 
 #: includes/Admin/Screens.php:197
-msgid "Plans use the tiers from Sepo WordPress Bridge. Its tier gates open for members whose plan here is active and paid."
+msgid "Plans use the tiers from Sepo Bridge. Its tier gates open for members whose plan here is active and paid."
 msgstr ""
 
 #: includes/Admin/Screens.php:197
-msgid "Sepo WordPress Bridge is active but has no tiers yet. Add tiers there to share them, or use the plans set up here."
+msgid "Sepo Bridge is active but has no tiers yet. Add tiers there to share them, or use the plans set up here."
 msgstr ""
 
 #: includes/Admin/Screens.php:198
-msgid "Plans use the tiers set up here. With Sepo WordPress Bridge active, they are shared with it."
+msgid "Plans use the tiers set up here. With Sepo Bridge active, they are shared with it."
 msgstr ""
 
 #: includes/Admin/Screens.php:224
@@ -943,7 +943,7 @@ msgid "Nothing has been logged yet."
 msgstr ""
 
 #: includes/Admin/Screens.php:545
-msgid "The tiers come from Sepo WordPress Bridge, so a plan here and a tier gate there mean the same thing. Rename, rank or add tiers in the Bridge; set prices and benefits here."
+msgid "The tiers come from Sepo Bridge, so a plan here and a tier gate there mean the same thing. Rename, rank or add tiers in the Bridge; set prices and benefits here."
 msgstr ""
 
 #: includes/Admin/Screens.php:547
